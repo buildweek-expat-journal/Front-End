@@ -8,9 +8,6 @@ const StyledInput = styled.input`
   width: 90%;
   margin-bottom: 5px;
   height: 22px;
-  .error {
-    border-color: red;
-  }
 `;
 
 const StyledButton = styled.button`
@@ -29,6 +26,11 @@ const StyledButton = styled.button`
     border: 1px solid black;
   }
 `;
+
+const StyledError = styled.div`
+color: red;
+padding-left: 10px;
+`
 
 const LoginForm = () => (
   <Formik
@@ -69,7 +71,7 @@ const LoginForm = () => (
             onChange={handleChange}
             className={errors.email && touched.email && "error"}
           />
-          {errors.email && touched.email && <div>{errors.email}</div>}
+          {errors.email && touched.email && <StyledError>{errors.email}</StyledError>}
           <br />
           <label htmlFor="email">Password</label>
           <StyledInput
@@ -80,7 +82,7 @@ const LoginForm = () => (
             onChange={handleChange}
             className={errors.password && touched.password && "error"}
           />
-          {errors.password && touched.password && <div>{errors.password}</div>}
+          {errors.password && touched.password && <StyledError>{errors.password}</StyledError>}
           <br />
           <StyledButton type="submit" disabled={isSubmitting}>
             Login
