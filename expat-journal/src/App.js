@@ -6,7 +6,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header></header>
+        <Header />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
@@ -17,6 +17,9 @@ function App() {
           <PrivateRoute path="/bubbles" component={EditTrip} />
           <PrivateRoute path="/bubbles" component={PrivateTrip} />
         </Switch>
+        <Header />
+
+
       </div>
     </Router>
   );
