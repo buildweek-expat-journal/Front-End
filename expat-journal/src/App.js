@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import LoginForm from "./LoginForm";
-import "./styles.css";
+import "./index.css";
 
 const StyledLogin = styled.div`
   width: 500px;
