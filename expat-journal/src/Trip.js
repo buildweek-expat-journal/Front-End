@@ -2,16 +2,27 @@ import React from 'react';
 import {Router, NavLink} from 'react-router-dom';
 
 
-function Trip() {
+function Trip(props) {
     return (
         <div className='trip-wrapper'>
-            <h1>Location</h1>
-            <img src="https://images.unsplash.com/photo-1567913300214-364d5256df1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"></img>
+            {/* header with the location of the trip */}
+            <h1>{`location goes here`}</h1>
+            {/* banner image of the location */}
+            <img src=""></img>
 
-            <div className='trip-sub-nav'>
+            <nav className='trip-sub-nav'>
+                {/* links to a Blog tab with a description of that given trip */}
+                <NavLink to={`/traveler/location/${trip.id}`}>Blog</NavLink>
+                {/* links to a Pictures tab with an image grid of a given trip */}
+                <NavLink to={`/traveler/location/${trip.id}`}>Pictures</NavLink>
+            </nav>
 
-            </div>
-
+            {/* renders the blog text/description of the trip */}
+            <Route 
+                exact path="/traveler/location/:id"
+                render={() => <Blog trip={trip} /> }
+            />
+            
         </div>
     )
 }
