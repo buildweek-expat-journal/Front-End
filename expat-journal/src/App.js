@@ -1,38 +1,27 @@
-import React from "react";
+import React from 'react';
 import ReactDOM from "react-dom";
-import styled from "styled-components";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import "./index.css";
-
-const StyledLogin = styled.div`
-  width: 500px;
-  border: 1px solid black;
-  margin: 0 auto;
-  height: 400px;
-  background-color: #f7f7f7;
-  font-family: "Roboto", sans-serif;
-  text-align: left;
-  padding-left: 20px;
-  box-shadow: 10px 10px 16px 0px rgba(0, 0, 0, 0.75);
-
-  h1 {
-    padding-bottom: 30px;
-    text-align: center;
-  }
-
-  label {
-    padding-left: 10px;
-  }
-`;
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <StyledLogin>
-        <h1>Login</h1>
-        <LoginForm />
-      </StyledLogin>
-    </div>
+    <Router>
+      <div className="App">
+        <header></header>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/browse" component={Browse} />
+          <Route exact path="/traveler/:id" component={Traveler} />
+          <Route exact path="/traveler/location/:id" component={Trip} />
+          <PrivateRoute path="/bubbles" component={Profile} />
+          <PrivateRoute path="/bubbles" component={EditTrip} />
+          <PrivateRoute path="/bubbles" component={PrivateTrip} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
