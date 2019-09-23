@@ -15,19 +15,19 @@ function Trip(props) {
             {/* bottom section of page underneath the banner image that will display the tabs */}
             <nav className='trip-sub-nav'>
                 {/*  Blog tab with a description of that given trip */}
-                <NavLink to={`/traveler/location/:id/`}>Blog</NavLink>
+                <NavLink to={`/traveler/:id/location/:lid/`}>Blog</NavLink>
                 {/* links to a Pictures tab with an image grid of a given trip */}
-                <NavLink to={`/traveler/location/:id/`}>Pictures</NavLink>
+                <NavLink to={`/traveler/:id/location/:lid/images`}>Images</NavLink>
             </nav>
 
             {/* renders the blog text/description of the trip */}
             <Route 
-                exact path="/traveler/location/:id/"
+                exact path="/traveler/:id/location/:lid/"
                 render={() => <Blog /> }
             />
             {/* routes to images */}
             <Route 
-                exact path="/traveler ..." />
+                exact path="/traveler/:id/location/:lid/images" />
             
         </div>
     )
