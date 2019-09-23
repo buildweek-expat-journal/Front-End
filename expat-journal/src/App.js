@@ -2,16 +2,17 @@ import React, {useState} from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./index.css";
 import './App.css';
-import Trip from './components/Trip';
 
 // import Home from './components/Home'
 // import Browse from './components/Browse'
 // import Traveler from './components/Traveler'
-// import Trip from './components/Trip'
-// import Profile from './components/Profile'
+import Trip from './components/Trip'
+import Profile from './components/Profile'
 import LoginForm from "./components/LoginForm";
 // import EditTrip from "./components/EditTrip";
 // import PrivateTrip from "./components/PrivateTrip";
+import PrivateRoute from './auth/routes/PrivateRoute'
+
 import {TripContext} from './contexts/TripContext';
 import { ProfileContext } from './contexts/ProfileContext';
 import {AllTripsContext} from './contexts/AllTripsContext';
@@ -21,15 +22,16 @@ function App() {
 
   const traveler = {
     //Required fields
-    first_name: '',
+    first_name: 'a',
     last_name: '',
     email:'',
     password:'',
-    profileType: 'public/private',
+    profileType: '',
     //Auto-generated
     profileUrl:'',
     profileCardUrl: '',
     userTrips: [],
+    user_id: "",
   };
 
   const loginCreds = {
@@ -56,27 +58,37 @@ function App() {
   const[useTripsState, setUserTrips] = useState(userTrips);
   const[loginState, setLogin] = useState(loginCreds);
 
+  const changeTraveler = () => {
+    setTraveler()
+  }
 
+  console.log(travelerState)
   return (
-    <Router>
-      <div className="App">
-        <Switch>
+    <div>
+      <Profile />
+      <Router>
+        <div className="App">
+          <Switch>
 
-          <ProfileContext.Provider value={{travelerState, setTraveler}}>
-            <Route exact path="/" component={Home} />
-          </ProfileContext.Provider> */}
-          <ProfileContext.Provider value={{loginState, setLogin}}>
-            <Route exact path="/login" component={LoginForm} />
-          </ProfileContext.Provider> */}
-          <Route exact path="/browse" component={Browse} />
-          <Route exact path="/traveler/:id" component={Traveler} />
-          <Route exact path="/traveler/:id/location/:lid" component={Trip} />
-          <PrivateRoute path="/bubbles" component={Profile} />
-          <PrivateRoute path="/bubbles" component={EditTrip} />
-          <PrivateRoute path="/bubbles" component={PrivateTrip} />
-        </Switch>
-      </div>
-    </Router>
+            {/* <ProfileContext.Provider value={{travelerState, setTraveler}}>
+              <Route exact path="/" component={Home} />
+            </ProfileContext.Provider> */}
+            <ProfileContext.Provider value={{loginState, setLogin, setTraveler, travelerState}}>
+              <Route exact path="/login" component={LoginForm} />
+            </ProfileContext.Provider> 
+            {/*<Route exact path="/browse" component={Browse} />
+            <Route exact path="/traveler/:id" component={Traveler} />
+            <Route exact path="/traveler/:id/location/:lid" component={Trip} />*/}
+            <ProfileContext.Provider value={travelerState}>
+              <Route exact path='/profile' component={Profile} />
+            </ProfileContext.Provider> 
+            {/* <PrivateRoute path="/profile/:id/editTrip/:lid" component={EditTrip} />
+            <PrivateRoute path="/profile/:id/myTrip/:lid" component={PrivateTrip} />  */}
+          </Switch>
+        </div>
+      </Router>
+    </div>
+
   );
 }
 
