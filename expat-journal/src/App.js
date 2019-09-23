@@ -2,12 +2,11 @@ import React, {useState} from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./index.css";
 import './App.css';
-import Trip from './components/Trip';
-
+import Header from './components/Header'
 // import Home from './components/Home'
 // import Browse from './components/Browse'
 // import Traveler from './components/Traveler'
-// import Trip from './components/Trip'
+import Trip from './components/Trip'
 // import Profile from './components/Profile'
 import LoginForm from "./components/LoginForm";
 // import EditTrip from "./components/EditTrip";
@@ -60,8 +59,8 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Header />
         <Switch>
-
           <ProfileContext.Provider value={{travelerState, setTraveler}}>
             <Route exact path="/" component={Home} />
           </ProfileContext.Provider> */}
