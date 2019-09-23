@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./index.css";
 import './App.css';
+import Trip from './Trip';
 
 // import Home from './components/Home'
 // import Browse from './components/Browse'
@@ -60,6 +61,7 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
+
           {/* <ProfileContext.Provider value={{travelerState, setTraveler}}>
             <Route exact path="/" component={Home} />
           </ProfileContext.Provider> */}
@@ -68,7 +70,7 @@ function App() {
           </ProfileContext.Provider>
           {/* <Route exact path="/browse" component={Browse} />
           <Route exact path="/traveler/:id" component={Traveler} />
-          <Route exact path="/traveler/location/:id" component={Trip} />
+          <Route exact path="/traveler/:id/location/:lid" component={Trip} />
           <PrivateRoute path="/bubbles" component={Profile} />
           <PrivateRoute path="/bubbles" component={EditTrip} />
           <PrivateRoute path="/bubbles" component={PrivateTrip} /> */}
