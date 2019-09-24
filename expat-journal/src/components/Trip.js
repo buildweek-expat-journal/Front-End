@@ -24,6 +24,7 @@ function Trip(props) {
     return (
         <div className='trip-wrapper'>
             {/* header with the location of the trip */}
+
             {/* {console.log(props)} */}
             <h1>{state.location}</h1>
 
@@ -61,11 +62,6 @@ function Trip(props) {
         </div>
     )
 }
-
-
-
-
-
 
 
 
