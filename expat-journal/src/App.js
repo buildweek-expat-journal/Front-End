@@ -17,7 +17,9 @@ import {TripContext} from './contexts/TripContext';
 import { ProfileContext } from './contexts/ProfileContext';
 import {AllTripsContext} from './contexts/AllTripsContext';
 import {AllProfilesContext} from './contexts/AllProfilesContext';
-
+import WelomePage from './components/WelcomePage.js'
+import WelcomePage from './components/WelcomePage.js';
+import SignUpForm from './components/SignUp';
 function App() {
 
   const traveler = {
@@ -74,11 +76,13 @@ function App() {
             {/* <ProfileContext.Provider value={{travelerState, setTraveler}}>
               <Route exact path="/" component={Home} />
             </ProfileContext.Provider> */}
+            <Route exact path="/signup" component={WelcomePage} />
             <Route exact path="/browse" component={Browse} />
             <PrivateRoute exact path='/profile/:id' component={Profile} />
             <Route exact path="/traveler/:id" component={Traveler} />
             <Route exact path="/traveler/:id/location/:lid" component={Trip} />
             <ProfileContext.Provider value={{loginState, setLogin, setTraveler, travelerState}}>
+            <Route exact path="/login" component={SignUpForm} />
               <Route exact path="/login" component={LoginForm} />
             </ProfileContext.Provider> 
 

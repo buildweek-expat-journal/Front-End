@@ -1,6 +1,6 @@
 import React from "react";
-import "./Nav";
-import './SignUp';
+import Nav from './Nav.js'
+import SignUp from './SignUp.js'
 
 export default function WelcomePage() {
   return (

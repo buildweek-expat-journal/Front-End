@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import styled from "styled-components";
+import {axiosWithAuth} from '../auth/AxiosWithAuth.js';
+
+
 
 /* const StyledSignUp = styled.div`   
 width: 500px;                           
@@ -56,129 +59,162 @@ const StyledButton = styled.button`
   }
 `;
 
-const SignUpForm = () => (
-  <Formik
-    initialValues={{
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      profileType: ""
-    }}
-    onSubmit={(values, { setValues }) => {
-      setTimeout(() => {
-        console.log("Signing Up", values);
-        setValues(false);
-      }, 500);
-    }}
-    validationSchema={Yup.object().shape({
-      firstName: Yup.string().required("First Name is required"),
-      lastName: Yup.string().required("Last Name is required"),
-      email: Yup.string()
-        .email()
-        .required("Required"),
-      password: Yup.string()
-        .required("No password provided.")
-        .min(8, "Password should be a minimum of 8 characters.")
-        .matches(/(?=.*[0-9])/, "Password must contain a number."),
-      confirmPassword: Yup.string()
-        .oneOf([Yup.ref("password"), null], "Passwords must match")
-        .required("Confirm Password is required"),
-      profileType: Yup.string().required("Please select a profile type")
-    })}
-  >
-    {props => {
-      const {
-        values,
-        touched,
-        errors,
-        isSubmitting,
-        handleChange,
-        handleSubmit
-      } = props;
-      return (
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="firstName">First Name</label>
-          <StyledInput
-            name="firstName"
-            type="text"
-            placeholder="Enter your first name"
-            value={values.firstName}
-            onChange={handleChange}
-          />
+const SignUpForm = (props) => {
 
-          <ErrorMessage name="firstName" component="div" />
-          <label htmlFor="lastName">Last Name</label>
-          <StyledInput
-            name="lastName"
-            type="text"
-            placeholder="Enter your last name"
-            value={values.lastName}
-            onChange={handleChange}
-          />
+  const [ register, setRegister ] = useState({});
 
-          <ErrorMessage name="lastName" component="div" />
+  const handleChanges = (event) => {
+    console.log(register)
+    setRegister({ ...register,
+       [event.target.name]: event.target.value });
+  }
 
-          <label htmlFor="email">Email</label>
-          <StyledInput
-            name="email"
-            type="text"
-            placeholder="Enter your email"
-            value={values.email}
-            onChange={handleChange}
-            className={errors.email && touched.email && "error"}
-          />
-          {errors.email && touched.email && <div>{errors.email}</div>}
-          <br />
-          <label htmlFor="email">Password</label>
-          <StyledInput
-            name="password"
-            type="password"
-            placeholder="Enter your password"
-            value={values.password}
-            onChange={handleChange}
-            className={errors.password && touched.password && "error"}
-          />
-          {errors.password && touched.password && <div>{errors.password}</div>}
-          <br />
+  return (
 
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <StyledInput
-            name="confirmPassword"
-            type="password"
-            placeholder="Enter your password"
-            onChange={handleChange}
-            className={
-              errors.confirmPassword && touched.confirmPassword && "error"
-            }
-          />
-          {errors.confirmPassword && touched.confirmPassword && (
-            <div>{errors.confirmPassword}</div>
-          )}
-          <label htmlFor="profileType">Select Profile Type</label>
-          <br />
-          <StyledSelect
-            name="profileType"
-            value={values.profileType}
-            onChange={handleChange}
-          >
-            <option value="" label="Please select below" />
-            <option value="private profile" label="private profile" />
-            <option value="public profile" label="public profile" />
-          </StyledSelect>
-          {errors.profileType && touched.profileType && (
-            <div className="input-feedback">{errors.profileType}</div>
-          )}
-          <br />
 
-          <StyledButton type="submit" disabled={isSubmitting}>
-            Sign Up
+
+
+    <Formik
+
+    // {
+    //   "email": "johndoe@gmail.com",
+    //   "password": "blahblah",
+    //   "first_name": "John",
+    //   "last_name": "Doe",
+    //   "profileType": "public" // private is the alternative
+    // }
+
+      initialValues={{
+        first_name: "",
+        last_name: "",
+        email: "",
+        password: "",
+        // confirmPassword: "",
+        profileType: ""
+      }}
+
+
+
+      onSubmit={(values, { setValues }) => {
+        axiosWithAuth()
+        .post(`https://expat-journal-api.herokuapp.com/users/register`, register)
+          .then(response => {
+            console.log(response.data, "from signup")
+            localStorage.setItem('token', response.data.token);
+          props.history.push(`/profile/${response.data.user_id}`)
+          })
+          .catch(err => {
+            console.log(err.message)
+           
+          })
+      }}
+    // validationSchema={Yup.object().shape({
+    //   firstName: Yup.string().required("First Name is required"),
+    //   lastName: Yup.string().required("Last Name is required"),
+    //   email: Yup.string()
+    //     .email()
+    //     .required("Required"),
+    //   password: Yup.string()
+    //     .required("No password provided.")
+    //     .min(8, "Password should be a minimum of 8 characters.")
+    //     .matches(/(?=.*[0-9])/, "Password must contain a number."),
+    //   confirmPassword: Yup.string()
+    //     .oneOf([Yup.ref("password"), null], "Passwords must match")
+    //     .required("Confirm Password is required"),
+    //   profileType: Yup.string().required("Please select a profile type")
+    // })}
+    >
+      {props => {
+        const {
+          values,
+          touched,
+          errors,
+          isSubmitting,
+          handleChange,
+          handleSubmit
+        } = props;
+        return (
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="firstName">First Name</label>
+            <StyledInput
+              name="first_name"
+              type="text"
+              placeholder="Enter your first name"
+              value={register.first_name}
+              onChange={handleChanges}
+            />
+
+            <ErrorMessage name="firstName" component="div" />
+            <label htmlFor="lastname">Last Name</label>
+            <StyledInput
+              name="last_name"
+              type="text"
+              placeholder="Enter your last name"
+              value={register.last_name}
+              onChange={handleChanges}
+            />
+
+            <ErrorMessage name="lastName" component="div" />
+
+            <label htmlFor="email">Email</label>
+            <StyledInput
+              name="email"
+              type="text"
+              placeholder="Enter your email"
+              value={register.email}
+              onChange={handleChanges}
+              className={errors.email && touched.email && "error"}
+            />
+            {errors.email && touched.email && <div>{errors.email}</div>}
+            <br />
+            <label htmlFor="email">Password</label>
+            <StyledInput
+              name="password"
+              type="password"
+              placeholder="Enter your password"
+              value={register.password}
+              onChange={handleChanges}
+              className={errors.password && touched.password && "error"}
+            />
+            {errors.password && touched.password && <div>{errors.password}</div>}
+            <br />
+
+            {/* <label htmlFor="confirmPassword">Confirm Password</label>
+            <StyledInput
+              name="confirmPassword"
+              type="password"
+              placeholder="Enter your password"
+              onChange={handleChanges}
+              className={
+                errors.confirmPassword && touched.confirmPassword && "error"
+              }
+            />
+            {errors.confirmPassword && touched.confirmPassword && (
+              <div>{errors.confirmPassword}</div>
+            )} */}
+            <label htmlFor="profileType">Select Profile Type</label>
+            <br />
+            <StyledSelect
+              name="profileType"
+              value={register.profileType}
+              onChange={handleChanges}
+            >
+              <option value="" label="Please select below" />
+              <option value="private profile" label="private profile" />
+              <option value="public profile" label="public profile" />
+            </StyledSelect>
+            {errors.profileType && touched.profileType && (
+              <div className="input-feedback">{errors.profileType}</div>
+            )}
+            <br />
+
+            <StyledButton type="submit" disabled={isSubmitting}>
+              Sign Up
           </StyledButton>
-        </form>
-      );
-    }}
-  </Formik>
-);
-
+          </form>
+        );
+      }}
+    </Formik>
+  );
+}
 export default SignUpForm;
