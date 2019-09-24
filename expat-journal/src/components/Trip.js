@@ -12,6 +12,8 @@ function Trip(props) {
             {/* header with the location of the trip */}
 
             <h1>{props.location}</h1>
+            {/* edit button will link to EditTrip.js component */}
+            <button className="edit-button">Edit</button>
 
             {/* banner image of the location */}
             <img src={props.locationUrl}></img>
@@ -35,11 +37,6 @@ function Trip(props) {
         </div>
     )
 }
-
-
-
-
-
 
 
 

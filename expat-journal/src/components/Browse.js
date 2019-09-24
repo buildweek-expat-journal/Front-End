@@ -1,9 +1,9 @@
 import React, {useContext, useEffect, useState } from "react";
-import UserCard from './UserCard.js'
+import UserCard from './UserCards';
 import {AllProfilesContext} from '../contexts/AllProfilesContext.js'
 import {axiosWithAuth} from '../auth/AxiosWithAuth.js'
 import { NavLink } from 'react-router-dom'
-import '../scss/Browse.scss'
+// import '../scss/Browse.scss'
 function Browse (props) {
  
     const [userList, setUserList] = useState([]);
