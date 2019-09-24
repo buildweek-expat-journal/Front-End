@@ -7,7 +7,7 @@ const UserCard = props => {
 
     
     return (
-<Link to={``}>
+<Link to={`/traveler/${props.user.id}`}>
 
       <Card >
           <Card.Content>
