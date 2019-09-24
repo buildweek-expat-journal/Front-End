@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./index.css";
 import './App.css';
-
+import Header from './components/Header'
 // import Home from './components/Home'
 // import Browse from './components/Browse'
 // import Traveler from './components/Traveler'
@@ -66,6 +66,7 @@ function App() {
 
   console.log(travelerState)
   return (
+
     <div>
       <Router>
         <div className="App">
@@ -88,7 +89,6 @@ function App() {
         </div>
       </Router>
     </div>
-
   );
 }
 
