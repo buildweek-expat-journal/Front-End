@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "./Nav";
 import SignUp from './SignUp';
 
+
 export default function WelcomePage() {
   return (
     <div className="container">
