@@ -1,5 +1,5 @@
 import React from "react";
-import UserCard from "./UserCard";
+import UserCard from "./TravelerCard";
 import styled from "styled-components";
 
 const StyledCards = styled.div`
