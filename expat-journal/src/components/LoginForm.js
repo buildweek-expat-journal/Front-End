@@ -56,9 +56,10 @@ color: red;
 padding-left: 10px;
 `
 
-const LoginForm = () => {
+const LoginForm = (props) => {
 
-    const {loginState, setLogin} = useContext(ProfileContext)
+    const {loginState, setLogin } = useContext(ProfileContext)
+
     const handleChanges=(event) => {
         console.log(loginState)
         setLogin({...loginState, [event.target.name]: event.target.value});
@@ -69,7 +70,11 @@ const LoginForm = () => {
             initialValues={{ email: "", password: "" }}
             onSubmit={(values, { setValues }) => {
                 axios.post(`https://expat-journal-api.herokuapp.com/users/login`, loginState)
-                .then(response => console.log(response))
+                .then(response => {
+                    console.log(response.data)
+                    localStorage.setItem('token', response.data.token);
+                    props.history.push(`/profile/${response.data.user_id}`)
+                })
                 .catch(err => {
                     console.log(err.message)
                 })

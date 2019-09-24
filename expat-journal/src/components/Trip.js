@@ -3,11 +3,16 @@ import { Route, NavLink } from 'react-router-dom';
 import Blog from './Blog'
 
 
+
+
 function Trip(props) {
+
     return (
         <div className='trip-wrapper'>
             {/* header with the location of the trip */}
+
             <h1>{props.location}</h1>
+
             {/* banner image of the location */}
             <img src={props.locationUrl}></img>
 
