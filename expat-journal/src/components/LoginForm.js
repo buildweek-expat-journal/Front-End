@@ -58,8 +58,8 @@ padding-left: 10px;
 
 const LoginForm = (props) => {
 
-    const {loginState, setLogin, travelerState, changeTraveler} = useContext(ProfileContext)
-    console.log(travelerState.first_name)
+    const {loginState, setLogin } = useContext(ProfileContext)
+
     const handleChanges=(event) => {
         console.log(loginState)
         setLogin({...loginState, [event.target.name]: event.target.value});
@@ -72,11 +72,8 @@ const LoginForm = (props) => {
                 axios.post(`https://expat-journal-api.herokuapp.com/users/login`, loginState)
                 .then(response => {
                     console.log(response.data)
-                    changeTraveler({...travelerState, user_id: response.data.user_id})
-                    console.log(travelerState)
                     localStorage.setItem('token', response.data.token);
                     props.history.push(`/profile/${response.data.user_id}`)
-                    
                 })
                 .catch(err => {
                     console.log(err.message)

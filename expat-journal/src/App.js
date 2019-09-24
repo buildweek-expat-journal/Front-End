@@ -37,6 +37,7 @@ function App() {
   const loginCreds = {
     email: '',
     password: '',
+    user_id: ''
   }
 
   const location = {
@@ -46,6 +47,7 @@ function App() {
     pictures: [],
     locationUrl: '',
     locationCardUrl: '',
+    trip_id: ''
   };
 
   //Each public traveler displayed on public browse page with Card
@@ -55,7 +57,7 @@ function App() {
   const[travelerState, setTraveler] = useState(traveler);
   const[locationState, setLocation] = useState(location);
   const[profilesState, setProfiles] = useState(profiles);
-  const[useTripsState, setUserTrips] = useState(userTrips);
+  const[tripsState, setUserTrips] = useState(userTrips);
   const[loginState, setLogin] = useState(loginCreds);
 
   const changeTraveler = () => {
@@ -65,7 +67,6 @@ function App() {
   console.log(travelerState)
   return (
     <div>
-      <Profile />
       <Router>
         <div className="App">
           <Switch>
@@ -73,15 +74,14 @@ function App() {
             {/* <ProfileContext.Provider value={{travelerState, setTraveler}}>
               <Route exact path="/" component={Home} />
             </ProfileContext.Provider> */}
+            <Route exact path='/profile/:id' component={Profile} />
             <ProfileContext.Provider value={{loginState, setLogin, setTraveler, travelerState}}>
               <Route exact path="/login" component={LoginForm} />
             </ProfileContext.Provider> 
             {/*<Route exact path="/browse" component={Browse} />
-            <Route exact path="/traveler/:id" component={Traveler} />
-            <Route exact path="/traveler/:id/location/:lid" component={Trip} />*/}
-            <ProfileContext.Provider value={travelerState}>
-              <Route exact path='/profile' component={Profile} />
-            </ProfileContext.Provider> 
+            <Route exact path="/traveler/:id" component={Traveler} />*/}
+            <Route exact path="/profile/:id/location/:lid" component={Trip} />
+
             {/* <PrivateRoute path="/profile/:id/editTrip/:lid" component={EditTrip} />
             <PrivateRoute path="/profile/:id/myTrip/:lid" component={PrivateTrip} />  */}
           </Switch>
