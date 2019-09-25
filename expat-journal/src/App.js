@@ -14,6 +14,7 @@ import EditTrip from "./components/EditTrip";
 // import PrivateTrip from "./components/";
 import PrivateRoute from './auth/routes/PrivateRoute'
 import WelcomePage from './components/WelcomePage'
+import NewTrip from './components/NewTrip'
 
 import {TripContext} from './contexts/TripContext';
 import { ProfileContext } from './contexts/ProfileContext';
@@ -25,7 +26,7 @@ function App() {
 
   const traveler = {
     //Required fields
-    first_name: 'a',
+    first_name: '',
     last_name: '',
     email:'',
     password:'',
@@ -72,19 +73,21 @@ function App() {
     <div>
       <Router>
         <div className="App">
-          <Nav />
+          {/* <Nav /> */}
+          <Route  path="/" component={Nav}/>
 
           <Switch>
             <Route exact path="/" component={WelcomePage} />
             <Route exact path="/browse" component={Browse} />
             <PrivateRoute exact path='/profile/:id' component={Profile} />
-            <Route exact path="/traveler/:id" component={Traveler} />
-            <Route path="/traveler/:id/location/:lid" component={Trip} />
+            <PrivateRoute path="/profile/:id/newTrip" component={NewTrip} />
             <PrivateRoute path="/profile/:id/location/:lid" component={EditTrip} />
             {/* <PrivateRoute path="/profile/:id/location/:lid" component={PrivateTrip} />  */}
             <ProfileContext.Provider value={{loginState, setLogin, setTraveler, travelerState}}>
               <Route exact path="/login" component={LoginForm} />
               <Route exact path="/signup" component={SignUpForm} />
+              <Route exact path="/traveler/:id" component={Traveler} />
+              <Route path="/traveler/:id/location/:lid" component={Trip} />
             </ProfileContext.Provider> 
           </Switch>
         </div>

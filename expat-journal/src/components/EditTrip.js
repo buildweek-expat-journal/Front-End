@@ -38,18 +38,14 @@ function EditTrip(props) {
                 {/* links to a Pictures tab with an image grid of a given trip */}
                 <NavLink to={`/profile/${props.match.params.id}/location/${props.match.params.lid}/images`}>Images</NavLink>
             </nav>
-            <Switch>
-                {/* renders the blog text/description of the trip */}
-
         
-
-
-                {/* <AllTripsContext.Provider  value={{state, setState}}>
+                {/* renders the blog text/description of the trip */}
+                <AllTripsContext.Provider  value={{state, setState}}>
                     <Route 
                         exact path="/profile/:id/location/:lid/edit"
                         render={(props) => <EditBlog {...props}/> }
                     />              
-                </AllTripsContext.Provider> */}
+                </AllTripsContext.Provider>
 
 
 
@@ -64,10 +60,6 @@ function EditTrip(props) {
                         render={() => <TripImageList /> }
                     />
                 </TripContext.Provider>
-
- 
-                
-            </Switch>
         </div>
     )
 }
