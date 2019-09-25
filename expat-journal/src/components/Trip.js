@@ -38,32 +38,35 @@ function Trip(props) {
 
             {/* banner image of the location */}
             {!state ? '' : console.log(state)}
-            <img src={!state.photos ? '' : state.photos[0].url} alt='tokyo street'></img>
-
+            <div className='public-trip-header-div'>
+                <img src={!state.photos ? '' : state.photos[0].url} alt='tokyo street' className="public-trip-header-img" />
+            </div>
             {/* bottom section of page underneath the banner image that will display the tabs */}
             <nav className='trip-sub-nav'>
                 {/*  Blog tab with a description of that given trip */}
-                <NavLink to={`/traveler/${props.match.params.id}/location/${props.match.params.lid}/`}>Blog</NavLink>
+                <NavLink className='trip-sub-nav-tab' to={`/traveler/${props.match.params.id}/location/${props.match.params.lid}/`}>Blog</NavLink>
                 {/* links to a Pictures tab with an image grid of a given trip */}
-                <NavLink to={`/traveler/${props.match.params.id}/location/${props.match.params.lid}/images`}>Images</NavLink>
+                <NavLink className='trip-sub-nav-tab' to={`/traveler/${props.match.params.id}/location/${props.match.params.lid}/images`}>Images</NavLink>
             </nav>
 
             {/* renders the blog text/description of the trip */}
             <div>
                 <Switch>
                     <TripContext.Provider value={{state, setState}}>
-                        <Route 
-                            exact path={`/traveler/:id/location/:lid`}
-                            render={(state) => {
-                                console.log(state)
-                                return <Blog description={state.description}/> 
-                            }}
-                        />
-                        {/* routes to images */}
-                        <Route 
-                            exact path="/traveler/:id/location/:lid/images" 
-                            render={() => <TripImageList /> }
-                        />
+                        <div className='public-trip-content'>
+                            <Route 
+                                exact path={`/traveler/:id/location/:lid`}
+                                render={(state) => {
+                                    console.log(state)
+                                    return <Blog description={state.description}/> 
+                                }}
+                            />
+                            {/* routes to images */}
+                            <Route 
+                                exact path="/traveler/:id/location/:lid/images" 
+                                render={() => <TripImageList /> }
+                            />
+                        </div>
                     </TripContext.Provider> 
                 </Switch>
             </div>

@@ -18,6 +18,7 @@ function Browse (props) {
             .get('https://expat-journal-api.herokuapp.com/users')
             .then((res) => {
               console.log(res, 'response from browse');
+            //   .filter( element => element.profileType === 'public profile')
             setUserList(res.data);
             })
             .catch((err) => console.log(err));
