@@ -20,13 +20,19 @@ function EditTrip(props) {
         })
     },[])
 
+     
+  function edit() {
+    props.history.push('/profile/:id/location/:lid/edit')
+  }
+
     return (
+        
         <div className='trip-wrapper'>
             {/* header with the location of the trip */}
 
              {/* {console.log(props)} */}
              <h1>{state.location}</h1>
-
+             <button onClick={edit}>Edit trip</button>
             {/* banner image of the location */}
             {!state ? '' : console.log(state)}
             <img src={!state.photos ? '' : state.photos[0].url} alt='tokyo street'></img>
@@ -44,12 +50,12 @@ function EditTrip(props) {
         
 
 
-                {/* <AllTripsContext.Provider  value={{state, setState}}>
+                <AllTripsContext.Provider  value={{state, setState}}>
                     <Route 
                         exact path="/profile/:id/location/:lid/edit"
                         render={(props) => <EditBlog {...props}/> }
                     />              
-                </AllTripsContext.Provider> */}
+                </AllTripsContext.Provider>
 
 
 
