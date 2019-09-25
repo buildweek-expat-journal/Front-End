@@ -36,6 +36,11 @@ const StyledLogin = styled.div`
     padding: 1rem;
     color: #495057;
   }
+  @media screen and (max-width: 500px) {
+    width: 80%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
 `;
 
 const StyledInput = styled.input`

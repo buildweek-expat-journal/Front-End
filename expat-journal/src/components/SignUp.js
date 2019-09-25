@@ -36,8 +36,9 @@ const StyledForm = styled.div`
     color: #495057;
   }
   @media screen and (max-width: 500px) {
-    width: 100%;
+    width: 80%;
     box-shadow: none;
+    margin-bottom: 5%;
   }
 `;
 
