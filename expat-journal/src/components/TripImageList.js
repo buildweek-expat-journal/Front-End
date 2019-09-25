@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { TripContext } from '../contexts/TripContext';
-import Trip from './Trip';
 
 
-function TripImageList(props) {
+
+function TripImageList() {
 
     const {state} = useContext(TripContext)
 
@@ -14,7 +14,6 @@ function TripImageList(props) {
             {!state.photos ? <div>Loading</div> : state.photos.map(element => 
                 <div><img src={element.url} alt="blahblah"/></div>
             )}
-            {/*  */}
         </div>
     )
 }

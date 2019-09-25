@@ -6,8 +6,7 @@ import { AllTripsContext } from '../contexts/AllTripsContext';
 
 export default function EditBlog (props) {
     const { state, setState } = useContext(AllTripsContext);
-    console.log('hello world')
-    const [ blog, setBlog] = useState('');
+    console.log(props)
 
     const handleChange = (event) => {
         setState({...state, [event.target.name]: event.target.value});

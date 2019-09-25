@@ -54,7 +54,7 @@ function Trip(props) {
                         {/* routes to images */}
                         <Route 
                             exact path="/traveler/:id/location/:lid/images" 
-                            render={() => <TripImageList description={props.description}/> }
+                            render={() => <TripImageList /> }
                         />
                     </TripContext.Provider> 
                 </Switch>
