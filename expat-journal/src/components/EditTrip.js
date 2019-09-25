@@ -44,11 +44,7 @@ function EditTrip(props) {
                 {/* links to a Pictures tab with an image grid of a given trip */}
                 <NavLink to={`/profile/${props.match.params.id}/location/${props.match.params.lid}/images`}>Images</NavLink>
             </nav>
-            <Switch>
                 {/* renders the blog text/description of the trip */}
-
-        
-
 
                 <AllTripsContext.Provider  value={{state, setState}}>
                     <Route 
@@ -70,10 +66,6 @@ function EditTrip(props) {
                         render={() => <TripImageList /> }
                     />
                 </TripContext.Provider>
-
- 
-                
-            </Switch>
         </div>
     )
 }

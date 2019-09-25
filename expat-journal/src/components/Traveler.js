@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import { NavLink } from 'react-router-dom';
+import React, {useState, useEffect, useContext} from 'react';
 import { ProfileContext } from '../contexts/ProfileContext'
 import axios from 'axios';
 
@@ -7,11 +6,14 @@ import axios from 'axios';
 function Traveler(props) {
     console.log(props.match.params.id)
     console.log(ProfileContext)
+    const {setTraveler} = useContext(ProfileContext)
+
     const [user, setUser] = useState({})
     useEffect(() => {
         axios.get(`https://expat-journal-api.herokuapp.com/users/${props.match.params.id}`)
         .then(res => {
             setUser(res.data);
+            setTraveler(res.data)
             console.log(res.data)
         })
     },[])
@@ -23,6 +25,7 @@ function Traveler(props) {
     }
     return (
         <div className='profile-wrapper'>
+            {console.log(user)}
             {/* banner image of the profile */}
             <img src='https://images.unsplash.com/photo-1567913300214-364d5256df1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80'></img>
             {/* header with the location of the trip */}
@@ -36,7 +39,7 @@ function Traveler(props) {
                     {console.log(user)}
                 { !user.trips ? <h3>Loading</h3> : 
                     user.trips.map(element => {
-                        console.log(element)
+                        console.log(user)
                         return <div onClick={(event) => clickHandle(event, element)} key={element.id} style={{backgroundImage: `url(${element.locationCardUrl})`}}>{element.location}</div>
                 })}
                 
