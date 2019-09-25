@@ -28,14 +28,13 @@ const StyledLeft = styled.div`
 
 const StyledButton = styled.button`
   padding: 10px 15px;
-  background-color: #2DA562;
+  background-color: #2DA561;
   color: #fff;
   width: 100px;
-  border: 1px solid #2DA562;
+  border: 1px solid #2DA561;
   padding: 1rem;
   line-height: 1;
   margin: 1rem;
-  background-color: 250ms;
   margin-bottom: 40px;
   margin-right: 40px;
   border-radius: 4px;
@@ -45,6 +44,11 @@ const StyledButton = styled.button`
     background-color: white;
     color: #2da562;
     border: 1px solid #2da562;
+  }
+  @media screen and (max-width: 500px) {
+    width: 70%;
+    margin-right: 0;
+    border: 1px solid #22283A;
   }
 `;
 
@@ -58,7 +62,7 @@ const StyledRight = styled.div`
     text-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   }
   @media screen and (max-width: 500px) {
-    
+    width: 100%;
   }
 `;
 
@@ -84,7 +88,7 @@ export default function WelcomePage(props) {
       </StyledLeft>
 
       <StyledRight>
-        <h1>Not a member?</h1>
+        <h1 className="member-txt">Not a member?</h1>
         <SignUp />
       </StyledRight>
     </StyledContainer>
