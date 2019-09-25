@@ -60,7 +60,7 @@ export default function Nav(props) {
       <StyledNavLink to="/browse" activeClassName="activeNavButton">
         Browse
       </StyledNavLink>
-      <StyledNavLink to="/login" activeClassName="activeNavButton">
+      <StyledNavLink to="/login" className="login-btn" activeClassName="activeNavButton">
         Login
       </StyledNavLink>
 

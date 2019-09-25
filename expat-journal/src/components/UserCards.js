@@ -14,13 +14,15 @@ const StyledCard = styled.div`
   margin: 20px;
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 5px 1px 20px #111;
+  box-shadow: 5px 1px 20px grey;
   font-size: 1.1rem;
+  transition: 0.5s;
+  color: black;
   &:hover {
     transform: scale(1.05);
 
 `;
-
+ 
 
 const UserCard = props => {
 
@@ -31,9 +33,8 @@ const UserCard = props => {
 <StyledCard className="styled-card">
           
           <img className="user-card-img" src={"https://images.unsplash.com/photo-1569176106333-acbfe0bacabb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80"}/>
-  <h1>{props.user.first_name}</h1>
-  <h2>{props.user.email}</h2>
-  <h3>{props.user.last_name}</h3>
+  <h1>{props.user.first_name} {props.user.last_name}</h1>
+  <h3>{props.user.email.toLowerCase()}</h3>
 
 
 

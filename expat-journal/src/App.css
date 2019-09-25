@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: "Roboto Condensed", serif;
 }
 
 .App-logo {
@@ -42,3 +43,20 @@
 .styled-card{
   background: #e5e5e5;
 } */
+
+/* FONT OVERRIDES */
+ h1, h2, p {
+  font-family: "Roboto Condensed", serif;
+}
+
+
+/* MEDIA QUERIES FOR MOBILE */
+@media screen and (max-width: 500px) {
+  .login-btn {
+    display: none;
+  }
+  .member-txt {
+    display: none;
+  }
+}
+

@@ -35,6 +35,10 @@ const StyledForm = styled.div`
     padding: 1rem;
     color: #495057;
   }
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    box-shadow: none;
+  }
 `;
 
 const StyledInput = styled.input`
@@ -54,7 +58,7 @@ const StyledSelect = styled.select`
 
 const StyledButton = styled.button`
   padding: 10px 15px;
-  background-color: #2DA562;
+  background-color: #2DA561;
   color: #fff;
   width: 90%;
   border: 1px solid #22283A;
