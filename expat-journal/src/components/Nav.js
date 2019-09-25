@@ -37,7 +37,7 @@ export default function Nav(props) {
       <div>
     <StyledNav>
 
-        <div onClick={() => props.history.push('/')} className="logo">🌎Expat<span>Journal</span></div>
+        <div onClick={() => props.history.push('/')} className="logo">🌎 &nbsp;Expat<span>Journal</span></div>
 
       <StyledNavLink exact to="/" activeClassName="activeNavButton">
         Home
