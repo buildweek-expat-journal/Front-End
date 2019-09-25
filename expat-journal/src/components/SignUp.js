@@ -111,17 +111,17 @@ const SignUpForm = (props) => {
     // validationSchema={Yup.object().shape({
     //   firstName: Yup.string().required("First Name is required"),
     //   lastName: Yup.string().required("Last Name is required"),
-    //   email: Yup.string()
-    //     .email()
-    //     .required("Required"),
-    //   password: Yup.string()
-    //     .required("No password provided.")
-    //     .min(8, "Password should be a minimum of 8 characters.")
-    //     .matches(/(?=.*[0-9])/, "Password must contain a number."),
-    //   confirmPassword: Yup.string()
-    //     .oneOf([Yup.ref("password"), null], "Passwords must match")
-    //     .required("Confirm Password is required"),
-    //   profileType: Yup.string().required("Please select a profile type")
+      // email: Yup.string()
+      //   .email()
+      //   .required("Required"),
+      // password: Yup.string()
+      //   .required("No password provided.")
+      //   .min(3, "Password should be a minimum of 3 characters.")
+      //   .matches(/(?=.*[0-9])/, "Password must contain a number."),
+      // confirmPassword: Yup.string()
+      //   .oneOf([Yup.ref("password"), null], "Passwords must match")
+      //   .required("Confirm Password is required"),
+      // profileType: Yup.string().required("Please select a profile type")
     // })}
     >
       {props => {
