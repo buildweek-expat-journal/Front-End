@@ -20,3 +20,25 @@
 .App-link {
   color: #09d3ac;
 }
+
+
+.user-cards{
+  display:flex;
+  flex-wrap: wrap;
+ margin:3rem;
+ justify-content: space-around;
+ 
+}
+
+.user-card-container{
+  display:flex;
+  
+  margin-bottom: 2rem;
+}
+.user-card-img{
+  width: 100%;
+}
+/* 
+.styled-card{
+  background: #e5e5e5;
+} */

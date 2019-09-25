@@ -20,6 +20,8 @@ import { ProfileContext } from './contexts/ProfileContext';
 import {AllTripsContext} from './contexts/AllTripsContext';
 import {AllProfilesContext} from './contexts/AllProfilesContext';
 
+import WelcomePage from './components/WelcomePage.js';
+import SignUpForm from './components/SignUp';
 function App() {
 
   const traveler = {
@@ -83,6 +85,7 @@ function App() {
             {/* <PrivateRoute path="/profile/:id/location/:lid" component={PrivateTrip} />  */}
             <ProfileContext.Provider value={{loginState, setLogin, setTraveler, travelerState}}>
               <Route exact path="/login" component={LoginForm} />
+              <Route exact path="/signup" component={SignUpForm} />
             </ProfileContext.Provider> 
           </Switch>
         </div>

@@ -60,6 +60,7 @@ const StyledContainer = styled.div`
   background-repeat: no-repeat;
 `;
 
+
 export default function WelcomePage() {
   return (
     <StyledContainer>
