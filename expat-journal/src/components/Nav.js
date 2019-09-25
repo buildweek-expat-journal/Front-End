@@ -5,9 +5,9 @@ import styled from "styled-components";
 const StyledNav = styled.div`
   display: flex;
   text-decoration: none;
-  height: 60px;
+  height: 80px;
   align-items: center;
-  font-size: 20px;
+  font-size: 2rem;
   width: 100%;
   background-color: #F6F2EF;
   font-family: 'Roboto Condensed', serif;
@@ -20,16 +20,18 @@ const StyledNav = styled.div`
       text-align: left;
       padding-left: 20px;
       color: black;
+      margin-left: 40px;
+      cursor: pointer;
   }
 `;
 
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   padding: 24px;
-  height: 100%;
   color: #283c46;
   font-family: "Roboto Condensed", serif;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  margin-right: 40px;
 `;
 
 export default function Nav(props) {
