@@ -89,7 +89,7 @@ function App() {
             {/* <PrivateRoute path="/profile/:id/editTrip/:lid" component={EditTrip} />
 
             <PrivateRoute path="/profile/:id/myTrip/:lid" component={PrivateTrip} />  */}
-            <PrivateRoute path="/profile/:id/location/:lid" component={PrivateTrip} />  */}
+            {/* <PrivateRoute path="/profile/:id/location/:lid" component={PrivateTrip} />  */}
           </Switch>
         </div>
       </Router>
