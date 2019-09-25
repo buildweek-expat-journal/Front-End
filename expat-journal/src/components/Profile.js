@@ -19,7 +19,7 @@ function Profile(props) {
     const clickHandle = (event, element) => {
         event.persist()
         console.log(element.id)
-        // props.history.push(`/profile/${user.id}/location/${user.trips}`)
+        props.history.push(`/profile/${props.match.params.id}/location/${element.id}`)
     }
     return (
         <div className='profile-wrapper'>

@@ -1,5 +1,7 @@
 import React, {useContext, useEffect, useState } from "react";
+
 import UserCard from './UserCards'
+
 import {AllProfilesContext} from '../contexts/AllProfilesContext.js'
 import {axiosWithAuth} from '../auth/AxiosWithAuth.js'
 import { NavLink } from 'react-router-dom'

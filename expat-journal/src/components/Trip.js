@@ -1,7 +1,10 @@
-import React, { useEffect, useState} from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import React, { useEffect, useState, useContext} from 'react';
+import { Route, NavLink, Switch } from 'react-router-dom';
 import Blog from './Blog'
 import axios from 'axios'
+
+import { TripContext } from '../contexts/TripContext';
+import TripImageList from './TripImageList';
 
 
 
@@ -18,10 +21,10 @@ function Trip(props) {
         })
     },[])
 
-    const arr = ""
     return (
         <div className='trip-wrapper'>
             {/* header with the location of the trip */}
+
             {/* {console.log(props)} */}
             <h1>{state.location}</h1>
 
@@ -32,27 +35,33 @@ function Trip(props) {
             {/* bottom section of page underneath the banner image that will display the tabs */}
             <nav className='trip-sub-nav'>
                 {/*  Blog tab with a description of that given trip */}
-                <NavLink to={`/traveler/:id/location/:lid/`}>Blog</NavLink>
+                <NavLink to={`/traveler/${props.match.params.id}/location/${props.match.params.lid}/`}>Blog</NavLink>
                 {/* links to a Pictures tab with an image grid of a given trip */}
-                <NavLink to={`/traveler/:id/location/:lid/images`}>Images</NavLink>
+                <NavLink to={`/traveler/${props.match.params.id}/location/${props.match.params.lid}/images`}>Images</NavLink>
             </nav>
 
             {/* renders the blog text/description of the trip */}
-            <Route 
-                exact path="/traveler/:id/location/:lid/"
-                render={() => <Blog description={props.description}/> }
-            />
-            {/* routes to images */}
-            <Route 
-                exact path="/traveler/:id/location/:lid/images" />
+            <div>
+                <Switch>
+                    <TripContext.Provider value={{state, setState}}>
+                        <Route 
+                            exact path={`/traveler/:id/location/:lid`}
+                            render={(state) => {
+                                console.log(state)
+                                return <Blog description={state.description}/> 
+                            }}
+                        />
+                        {/* routes to images */}
+                        <Route 
+                            exact path="/traveler/:id/location/:lid/images" 
+                            render={() => <TripImageList /> }
+                        />
+                    </TripContext.Provider> 
+                </Switch>
+            </div>
         </div>
     )
 }
-
-
-
-
-
 
 
 
