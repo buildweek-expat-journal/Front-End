@@ -42,3 +42,23 @@
 .styled-card{
   background: #e5e5e5;
 } */
+
+
+/* Traveler.js */
+
+.traveler-trip-div{
+  /* border: 1px solid black; */
+}
+.main-pic-traveler{
+  width:70%;
+}
+
+
+/* Profile.js */
+.profile-trip-div{
+  /* border: 1px solid black; */
+  font-size:rem;
+}
+.main-pic-profile{
+  width:70%;
+}

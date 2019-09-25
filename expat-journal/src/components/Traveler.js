@@ -1,6 +1,10 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { ProfileContext } from '../contexts/ProfileContext'
 import axios from 'axios';
+import { Card, Image, Modal, Button } from "semantic-ui-react";
+import Login from './LoginForm.js'
+
+
 
 
 function Traveler(props) {
@@ -18,6 +22,21 @@ function Traveler(props) {
         })
     },[])
 
+    const BookingButton = (event, element) => (
+        <Modal
+          trigger={
+            <Button>
+              View Trips
+            </Button>
+          }
+        >
+          <Modal.Header>View Trips</Modal.Header>
+         <h1>hi</h1>
+         <h1></h1>
+          <Login/>
+        </Modal>
+      );
+
     const clickHandle = (event, element) => {
         event.persist()
         console.log(element.id)
@@ -26,23 +45,28 @@ function Traveler(props) {
     return (
         <div className='profile-wrapper'>
             {console.log(user)}
+
+            <h1>{`Welcome to ${user.first_name}'s page`}</h1>
             {/* banner image of the profile */}
-            <img src='https://images.unsplash.com/photo-1567913300214-364d5256df1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80'></img>
+
+            
+            <img className="main-pic-traveler" src='https://images.unsplash.com/photo-1567913300214-364d5256df1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80'></img>
             {/* header with the location of the trip */}
-            <h1>{`Hello, ${user.first_name}`}</h1>
+            
 
             {/* bottom section of page underneath the banner image that will display the tabs */}
             <div>
                 <h2>{`${user.first_name}'s Trips`}</h2>
+                {/* <img src={user.trips.photo[2]}></img> */}
                 
                 <div>
                     {console.log(user)}
                 { !user.trips ? <h3>Loading</h3> : 
                     user.trips.map(element => {
                         console.log(user)
-                        return <div onClick={(event) => clickHandle(event, element)} key={element.id} style={{backgroundImage: `url(${element.locationCardUrl})`}}>{element.location}</div>
+                        return <div  className="traveler-trip-div" onClick={(event) => clickHandle(event, element)} key={element.id} style={{backgroundImage: `url(${element.locationCardUrl})`}}></div>
                 })}
-                
+                {/* <BookingButton/> */}
                 </div>
             </div>
             
@@ -51,3 +75,4 @@ function Traveler(props) {
 }
 
 export default Traveler
+
