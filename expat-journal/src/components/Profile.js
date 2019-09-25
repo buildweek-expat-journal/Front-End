@@ -16,6 +16,8 @@ function Profile(props) {
         })
     },[])
 
+
+    
     const clickHandle = (event, element) => {
         event.persist()
         console.log(element.id)
@@ -23,16 +25,17 @@ function Profile(props) {
     }
     return (
         <div className='profile-wrapper'>
+             <h1>{`Hello, ${user.first_name}`}</h1>
             {/* banner image of the profile */}
-            <img src='https://images.unsplash.com/photo-1567913300214-364d5256df1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80'></img>
+            <img className="main-pic-profile" src='https://images.unsplash.com/photo-1567913300214-364d5256df1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80'></img>
             {/* header with the location of the trip */}
-            <h1>{`Hello, ${user.first_name}`}</h1>
+           
 
             {/* bottom section of page underneath the banner image that will display the tabs */}
             <div>
                 <h2>Your Trips</h2>
                 <NavLink  to={`/profile/${user.id}/newTrip`}>+ Add Trip</NavLink>
-                <div>
+                <div className="profile-trip-div">
                     {console.log(user)}
                 { !user.trips ? <h3>Loading</h3> : 
                     user.trips.map(element => {

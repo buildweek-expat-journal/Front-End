@@ -44,6 +44,24 @@
   background: #e5e5e5;
 } */
 
+
+
+/* Traveler.js */
+
+.main-pic-traveler{
+  width:70%;
+}
+
+
+/* Profile.js */
+.profile-trip-div{
+  /* border: 1px solid black; */
+  font-size:rem;
+}
+.main-pic-profile{
+  width:70%;
+}
+
 /* Trip Component*/
 
 .trip-sub-nav {
@@ -97,5 +115,4 @@
 }
 
 /* Blog */
-
 
