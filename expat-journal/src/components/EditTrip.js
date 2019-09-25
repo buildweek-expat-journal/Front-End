@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import { Route, NavLink, Switch } from 'react-router-dom';
-import axios from 'axios'
+import {axiosWithAuth} from '../auth/AxiosWithAuth.js'
 import EditBlog from './EditBlog';
 import TripImageList from './TripImageList'
 import Blog from './Blog';
@@ -13,20 +13,26 @@ function EditTrip(props) {
     const [state, setState] = useState({})
     useEffect(() => {
         console.log(props)
-        axios.get(`https://expat-journal-api.herokuapp.com/trips/${props.match.params.lid}`)
+        axiosWithAuth.get(`https://expat-journal-api.herokuapp.com/trips/${props.match.params.lid}`)
         .then((res) => {
             // console.log(res.data)
             setState(res.data)
         })
     },[])
 
+     
+  function edit() {
+    props.history.push('/profile/:id/location/:lid/edit')
+  }
+
     return (
+        
         <div className='trip-wrapper'>
             {/* header with the location of the trip */}
 
              {/* {console.log(props)} */}
              <h1>{state.location}</h1>
-
+             <button onClick={edit}>Edit trip</button>
             {/* banner image of the location */}
             {!state ? '' : console.log(state)}
             <img src={!state.photos ? '' : state.photos[0].url} alt='tokyo street'></img>
@@ -38,8 +44,8 @@ function EditTrip(props) {
                 {/* links to a Pictures tab with an image grid of a given trip */}
                 <NavLink to={`/profile/${props.match.params.id}/location/${props.match.params.lid}/images`}>Images</NavLink>
             </nav>
-        
                 {/* renders the blog text/description of the trip */}
+
                 <AllTripsContext.Provider  value={{state, setState}}>
                     <Route 
                         exact path="/profile/:id/location/:lid/edit"

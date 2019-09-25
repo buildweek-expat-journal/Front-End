@@ -20,7 +20,7 @@ import {TripContext} from './contexts/TripContext';
 import { ProfileContext } from './contexts/ProfileContext';
 import {AllTripsContext} from './contexts/AllTripsContext';
 import {AllProfilesContext} from './contexts/AllProfilesContext';
-
+import EditBlog from './components/EditBlog.js'
 import SignUpForm from './components/SignUp';
 function App() {
 
@@ -80,6 +80,7 @@ function App() {
             <Route exact path="/" component={WelcomePage} />
             <Route exact path="/browse" component={Browse} />
             <PrivateRoute exact path='/profile/:id' component={Profile} />
+            {/* <PrivateRoute path="/profile/:id/location/:lid/edit" component={EditBlog} /> */}
             <PrivateRoute path="/profile/:id/newTrip" component={NewTrip} />
             <PrivateRoute path="/profile/:id/location/:lid" component={EditTrip} />
             {/* <PrivateRoute path="/profile/:id/location/:lid" component={PrivateTrip} />  */}
