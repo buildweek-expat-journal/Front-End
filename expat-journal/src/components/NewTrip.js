@@ -18,7 +18,7 @@ export default function NewTrip (props) {
       axiosWithAuth()
           .post('/trips', state)
           .then(res => {
-              console.log(res.data)
+              console.log(state)
             //   props.history.push(`/profile/${props.match.params.id}`)
           })
           .catch(err => console.log(err.message));

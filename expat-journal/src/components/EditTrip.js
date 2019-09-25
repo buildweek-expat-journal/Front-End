@@ -1,6 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import { Route, NavLink, Switch } from 'react-router-dom';
-import axios from 'axios'
+import {axiosWithAuth} from '../auth/AxiosWithAuth.js'
 import EditBlog from './EditBlog';
 import TripImageList from './TripImageList'
 import Blog from './Blog';
@@ -13,7 +13,7 @@ function EditTrip(props) {
     const [state, setState] = useState({})
     useEffect(() => {
         console.log(props)
-        axios.get(`https://expat-journal-api.herokuapp.com/trips/${props.match.params.lid}`)
+        axiosWithAuth.get(`https://expat-journal-api.herokuapp.com/trips/${props.match.params.lid}`)
         .then((res) => {
             // console.log(res.data)
             setState(res.data)

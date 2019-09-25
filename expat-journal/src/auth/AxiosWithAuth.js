@@ -7,7 +7,8 @@ export const axiosWithAuth = () => {
   return axios.create({
     baseURL: 'https://expat-journal-api.herokuapp.com/',
     headers: {
-      Authorization: token
+      token: token,
+      'Content-Type': 'application/json'
     }
   });
 };
