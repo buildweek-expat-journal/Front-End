@@ -31,12 +31,12 @@ const StyledNavLink = styled(NavLink)`
   font-size: 1rem;
 `;
 
-export default function Nav() {
+export default function Nav(props) {
   return (
       <div>
     <StyledNav>
 
-        <div className="logo">Expat<span>Journal</span></div>
+        <div className="logo" onClick={() => props.history.push('/')}>Expat<span>Journal</span></div>
 
       <StyledNavLink exact to="/" activeClassName="activeNavButton">
         Home
