@@ -49,6 +49,11 @@
   font-family: "Roboto Condensed", serif;
 }
 
+/* pushes down Users h1 in Browse */
+.user-card-parent h1 {
+  margin: 3%;
+  font-size: 3rem;
+}
 
 /* MEDIA QUERIES FOR MOBILE */
 @media screen and (max-width: 500px) {
