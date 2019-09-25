@@ -61,13 +61,13 @@ const StyledContainer = styled.div`
 `;
 
 
-export default function WelcomePage() {
+export default function WelcomePage(props) {
   return (
     <StyledContainer>
       <StyledLeft>
         <h1>Welcome to Expat Journal</h1>
 
-        <StyledButton>Log In</StyledButton>
+        <StyledButton onClick={() => props.history.push('/login')}>Log In</StyledButton>
       </StyledLeft>
 
       <StyledRight>
