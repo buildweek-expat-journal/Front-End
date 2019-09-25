@@ -3,6 +3,7 @@ import { Route, NavLink, Switch } from 'react-router-dom';
 import axios from 'axios'
 import EditBlog from './EditBlog';
 import TripImageList from './TripImageList'
+import Blog from './Blog';
 
 import { AllTripsContext } from '../contexts/AllTripsContext';
 import { TripContext } from '../contexts/TripContext';
@@ -33,29 +34,38 @@ function EditTrip(props) {
             {/* bottom section of page underneath the banner image that will display the tabs */}
             <nav className='trip-sub-nav'>
                 {/*  Blog tab with a description of that given trip */}
-                <NavLink to={`/profile/${props.match.params.id}/editTrip/${props.match.params.lid}/`}>Blog</NavLink>
+                <NavLink to={`/profile/${props.match.params.id}/location/${props.match.params.lid}/`}>Blog</NavLink>
                 {/* links to a Pictures tab with an image grid of a given trip */}
-                <NavLink to={`/profile/${props.match.params.id}/editTrip/${props.match.params.lid}/images`}>Images</NavLink>
+                <NavLink to={`/profile/${props.match.params.id}/location/${props.match.params.lid}/images`}>Images</NavLink>
             </nav>
             <Switch>
                 {/* renders the blog text/description of the trip */}
- 
+
+        
+
+
+                {/* <AllTripsContext.Provider  value={{state, setState}}>
+                    <Route 
+                        exact path="/profile/:id/location/:lid/edit"
+                        render={(props) => <EditBlog {...props}/> }
+                    />              
+                </AllTripsContext.Provider> */}
+
+
 
                 {/* routes to images */}
                 <TripContext.Provider  value={{state, setState}}>
-
                     <Route 
-                        exact path="/profile/:id/editTrip/:lid/images" 
+                            exact path="/profile/:id/location/:lid" 
+                            render={() => <Blog /> }
+                    />
+                    <Route 
+                        exact path="/profile/:id/location/:lid/images" 
                         render={() => <TripImageList /> }
                     />
                 </TripContext.Provider>
 
-                <AllTripsContext.Provider  value={{state, setState}}>
-                    <Route 
-                        exact path="/profile/:id/editTrip/:lid/"
-                        render={(props) => <EditBlog {...props}/> }
-                    />              
-                </AllTripsContext.Provider>
+ 
                 
             </Switch>
         </div>

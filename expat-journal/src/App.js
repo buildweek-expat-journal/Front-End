@@ -20,7 +20,6 @@ import { ProfileContext } from './contexts/ProfileContext';
 import {AllTripsContext} from './contexts/AllTripsContext';
 import {AllProfilesContext} from './contexts/AllProfilesContext';
 
-import WelcomePage from './components/WelcomePage.js';
 import SignUpForm from './components/SignUp';
 function App() {
 
@@ -81,7 +80,7 @@ function App() {
             <PrivateRoute exact path='/profile/:id' component={Profile} />
             <Route exact path="/traveler/:id" component={Traveler} />
             <Route path="/traveler/:id/location/:lid" component={Trip} />
-            <PrivateRoute path="/profile/:id/editTrip/:lid" component={EditTrip} />
+            <PrivateRoute path="/profile/:id/location/:lid" component={EditTrip} />
             {/* <PrivateRoute path="/profile/:id/location/:lid" component={PrivateTrip} />  */}
             <ProfileContext.Provider value={{loginState, setLogin, setTraveler, travelerState}}>
               <Route exact path="/login" component={LoginForm} />
