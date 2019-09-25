@@ -19,6 +19,7 @@ const StyledNav = styled.div`
       justify-content: flex-start;
       text-align: left;
       padding-left: 20px;
+      color: black;
   }
 `;
 
@@ -31,12 +32,12 @@ const StyledNavLink = styled(NavLink)`
   font-size: 1rem;
 `;
 
-export default function Nav() {
+export default function Nav(props) {
   return (
       <div>
     <StyledNav>
 
-        <div className="logo">Expat<span>Journal</span></div>
+        <div onClick={() => props.history.push('/')} className="logo">Expat<span>Journal</span></div>
 
       <StyledNavLink exact to="/" activeClassName="activeNavButton">
         Home
