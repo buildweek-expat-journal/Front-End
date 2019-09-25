@@ -8,9 +8,11 @@ const romeImage = require("../../src/projectImages/rome.jpeg");
 const StyledLeft = styled.div`
   width: 50%;
   h1 {
-    font-size: 2.6rem;
+    font-family: 'Roboto Condensed', serif;
+    font-size: 3.5rem;
     color: white;
     padding-bottom: 3rem;
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   }
   p {
     color: white;
@@ -18,6 +20,9 @@ const StyledLeft = styled.div`
   }
   img {
     width: 2000px;
+  }
+  @media screen and (max-width: 500px) {
+    width: 100%;
   }
 `;
 
@@ -47,9 +52,13 @@ const StyledRight = styled.div`
   width: 50%;
   h1 {
     padding-bottom: 3rem;
-    font-family: "Roboto Condensed" serif;
+    font-family: 'Roboto Condensed', serif;
     color: white;
     font-size: 2.6rem;
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+  @media screen and (max-width: 500px) {
+    
   }
 `;
 
@@ -58,6 +67,10 @@ const StyledContainer = styled.div`
   padding-top: 100px;
   background-image: url(${romeImage});
   background-repeat: no-repeat;
+  @media screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 

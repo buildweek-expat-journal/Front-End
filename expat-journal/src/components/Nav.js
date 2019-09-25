@@ -23,6 +23,19 @@ const StyledNav = styled.div`
       margin-left: 40px;
       cursor: pointer;
   }
+  @media screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    .logo {
+      padding-left: 0;
+      margin: 5% 0;
+    }
+    a {
+      margin-right: 0;
+    }
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`
