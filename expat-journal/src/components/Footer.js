@@ -48,9 +48,16 @@ const StyledNavLink = styled(NavLink)`
 `;
 
 
-const Footer = (props) => {
-  return (
-    <StyledNav>
+class Footer extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+
+    return (
+      <StyledNav>
         <StyledNavLink exact to="/" activeClassName="activeNavButton">
           Terms
         </StyledNavLink>
@@ -63,7 +70,7 @@ const Footer = (props) => {
         <StyledNavLink to="/" activeClassName="activeNavButton">
           Help
         </StyledNavLink>
-        <div onClick={() => props.history.push("/")} className="logo">
+        <div onClick={() => this.props.history.push("/")} className="logo">
           🌎 &nbsp;
         </div>
         <StyledNavLink to="/" activeClassName="activeNavButton">
@@ -78,9 +85,10 @@ const Footer = (props) => {
         <StyledNavLink to="/" activeClassName="activeNavButton">
           About
         </StyledNavLink>
-        
+
       </StyledNav>
-  )
+    )
+  }
 }
 
 export default Footer

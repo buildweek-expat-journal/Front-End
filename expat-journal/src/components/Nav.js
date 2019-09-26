@@ -66,28 +66,34 @@ const StyledLoginNavLink = styled(NavLink)`
   }
 `;
 
-export default function Nav(props) {
-  return (
-    <div>
-      <StyledNav>
-        <div onClick={() => props.history.push("/")} className="logo">
-          🌎 &nbsp;Expat<span>Journal</span>
-        </div>
+export default class Nav extends React.Component {
 
-        <StyledNavLink exact to="/" activeClassName="activeNavButton">
-          Home
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <StyledNav>
+          <div onClick={() => this.props.history.push("/")} className="logo">
+            🌎 &nbsp;Expat<span>Journal</span>
+          </div>
+
+          <StyledNavLink exact to="/" activeClassName="activeNavButton">
+            Home
         </StyledNavLink>
-        <StyledNavLink to="/browse" activeClassName="activeNavButton">
-          Browse
+          <StyledNavLink to="/browse" activeClassName="activeNavButton">
+            Browse
         </StyledNavLink>
-        <StyledLoginNavLink
-          to="/login"
-          className="login-btn"
-          activeClassName="activeNavButton"
-        >
-          Login
+          <StyledLoginNavLink
+            to="/login"
+            className="login-btn"
+            activeClassName="activeNavButton"
+          >
+            Login
         </StyledLoginNavLink>
-      </StyledNav>
-    </div>
-  );
+        </StyledNav>
+      </div>
+    );
+  }
 }
