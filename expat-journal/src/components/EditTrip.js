@@ -46,8 +46,9 @@ function EditTrip(props) {
             </div>
             {/* banner image of the location */}
             {!state ? '' : console.log(state)}
-            <img className='private-banner-image' src={!state.photos ? '' : state.photos[0].url} alt='tokyo street'></img>
-
+            <div className="private-trip-header-div">
+                <img className='private-trip-header-img' src={!state.photos ? '' : state.photos[0].url} alt='tokyo street'></img>
+            </div>
             {/* bottom section of page underneath the banner image that will display the tabs */}
             <nav className='trip-sub-nav'>
                 {/*  Blog tab with a description of that given trip */}
