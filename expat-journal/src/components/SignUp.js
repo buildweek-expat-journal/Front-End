@@ -84,193 +84,6 @@ const StyledButton = styled.button`
   }
 `;
 
-// const SignUpForm = (props) => {
-
-//   const [ register, setRegister ] = useState({});
-
-//   const handleChanges = (event) => {
-//     console.log(register)
-//     setRegister({ ...register,
-//        [event.target.name]: event.target.value });
-//   }
-
-//   return (
-
-
-
-
-//     <Formik
-
-//     // {
-//     //   "email": "johndoe@gmail.com",
-//     //   "password": "blahblah",
-//     //   "first_name": "John",
-//     //   "last_name": "Doe",
-//     //   "profileType": "public" // private is the alternative
-//     // }
-
-//       initialValues={{
-//         first_name: "",
-//         last_name: "",
-//         email: "",
-//         password: "",
-//         // confirmPassword: "",
-//         profileType: ""
-//       }}
-
-    
-    
-//       onSubmit={(values, { setValues }) => {
-//         axiosWithAuth()
-//         .post(`https://expat-journal-api.herokuapp.com/users/register`, register)
-//           .then(response => {
-//             console.log(response.data, "from signup")
-//             localStorage.setItem('token', response.data.token);
-//           props.history.push(`/profile/${response.data.user_id}`)
-//           })
-//           .catch(err => {
-//             console.log(err.message)
-           
-//           })
-//       }}
-
-//     //       validationSchema={Yup.object().shape({
-//     //   firstName: Yup.string().required("First Name is required"),
-//     //   lastName: Yup.string().required("Last Name is required"),
-//     //   email: Yup.string()
-//     //     .email()
-//     //     .required("Required"),
-//     //   password: Yup.string()
-//     //     .required("No password provided.")
-//     //     .min(3, "Password should be a minimum of 3 characters.")
-//     //     .matches(/(?=.*[0-9])/, "Password must contain a number."),
-//     //   confirmPassword: Yup.string()
-//     //     .oneOf([Yup.ref("password"), null], "Passwords must match")
-//     //     .required("Confirm Password is required"),
-//     //   profileType: Yup.string().required("Please select a profile type")
-//     // })}
-//      >
-
-
-  
-//     {props => {
-//       const {
-//         values,
-//         touched,
-//         errors,
-//         isSubmitting,
-//         handleChange,
-//         handleSubmit
-//       } = props;
-
-//       return (
-//         <StyledForm onSubmit={handleSubmit}>
-//         <h2>Sign Up</h2>
-//           <label htmlFor="firstName">First Name</label>
-//           <StyledInput
-//             name="first_name"
-//             type="text"
-//             placeholder="First name"
-//             value={register.first_name}
-//             onChange={handleChanges}
-//           />
-
-//           <ErrorMessage name="firstName" component="div" />
-//           <label htmlFor="lastName">Last Name</label>
-//           <StyledInput
-//             name="last_name"
-//             type="text"
-//             placeholder="Last name"
-//             value={register.last_name}
-//             onChange={handleChanges}
-//           />
-
-//           <ErrorMessage name="lastName" component="div" />
-
-//         {/*   <label htmlFor="email">Email</label> */}
-//           <StyledInput
-//             name="email"
-//             type="text"
-//             placeholder="Email address"
-//             value={register.email}
-//             onChange={handleChanges}
-//             className={errors.email && touched.email && "error"}
-//           />
-//           {errors.email && touched.email && <div>{errors.email}</div>}
-//           <br />
-//           <label htmlFor="password">Password</label>
-//           <StyledInput
-//             name="password"
-//             type="password"
-//             placeholder="Enter your password"
-//             value={register.password}
-//             onChange={handleChanges}
-//             className={errors.password && touched.password && "error"}
-//           />
-//           {errors.password && touched.password && <div>{errors.password}</div>}
-//           <br />
-
-//           {/* <label htmlFor="confirmPassword">Confirm Password</label> */}
-//           {/* <StyledInput
-//             name="confirmPassword"
-//             type="password"
-//             placeholder="Confirm your password"
-//             onChange={handleChange}
-//             className={
-//               errors.confirmPassword && touched.confirmPassword && "error"
-//             }
-//           />
-//           {errors.confirmPassword && touched.confirmPassword && (
-//             <div>{errors.confirmPassword}</div>
-//           )} */}
-//           <label htmlFor="profileType">Select Profile Type</label>
-//           <br />
-//           <StyledSelect
-//             name="profileType"
-//             value={register.profileType}
-//             onChange={handleChanges}
-//           >
-//             <option value="" label="Please select below" />
-//             <option value="private profile" label="private profile" />
-//             <option value="public profile" label="public profile" />
-//           </StyledSelect>
-//           {errors.profileType && touched.profileType && (
-//             <div className="input-feedback">{errors.profileType}</div>
-//           )}
-//           <br />
-
-//           <StyledButton type="submit" disabled={isSubmitting}>
-//             Sign Up
-//           </StyledButton>
-//         </StyledForm>
-//       );
-//     }}
-//   </Formik>
-// );
-
-
- 
-// }
-// export default SignUpForm;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* const StyledSignUp = styled.div`   
 width: 500px;                           
 border: 1px solid black;               
@@ -293,36 +106,6 @@ label {
 `; */
 //The above code was some general styling held in App.js on my CodeSandbox. Just keeping it in here for future reference if need to refer to later.//
 
-// const StyledInput = styled.input`
-//   margin: 10px;
-//   width: 90%;
-//   margin-bottom: 5px;
-//   height: 22px;
-// `;
-
-// const StyledSelect = styled.select`
-//   margin: 10px;
-//   width: 90%;
-//   margin-bottom: 5px;
-//   height: 22px;
-// `;
-
-// const StyledButton = styled.button`
-//   padding: 10px 15px;
-//   background-color: black;
-//   color: white;
-//   border: 1px solid white;
-//   background-color: 250ms;
-//   float: right;
-//   margin-bottom: 40px;
-//   margin-right: 40px;
-//   :hover {
-//     cursor: pointer;
-//     background-color: white;
-//     color: black;
-//     border: 1px solid black;
-//   }
-// `;
 
 const SignUpForm = (props) => {
 
@@ -330,25 +113,15 @@ const SignUpForm = (props) => {
 
   const handleChanges = (event) => {
     console.log(register)
+    console.log(props)
     setRegister({ ...register,
        [event.target.name]: event.target.value });
   }
 
   return (
 
-
-
-
     <Formik
-
-    // {
-    //   "email": "johndoe@gmail.com",
-    //   "password": "blahblah",
-    //   "first_name": "John",
-    //   "last_name": "Doe",
-    //   "profileType": "public" // private is the alternative
-    // }
-
+    
       initialValues={{
         first_name: "",
         last_name: "",
@@ -357,13 +130,6 @@ const SignUpForm = (props) => {
         // confirmPassword: "",
         profileType: ""
       }}
-
-
-
-
-
-
-      
 
       onSubmit={(values, { setValues }) => {
         axiosWithAuth()
@@ -375,7 +141,6 @@ const SignUpForm = (props) => {
           })
           .catch(err => {
             console.log(err.message)
-           
           })
       }}
     // validationSchema={Yup.object().shape({
