@@ -9,7 +9,7 @@ const StyledNav = styled.div`
   align-items: center;
   font-size: 2rem;
   width: 100%;
-  background-color: #f6f2ef;
+  background-color: #2DA561;
   font-family: "Roboto Condensed", serif;
   span {
     font-weight: bold;
@@ -19,9 +19,12 @@ const StyledNav = styled.div`
     justify-content: flex-start;
     text-align: left;
     padding-left: 20px;
-    color: black;
+    color: #fffc88;
     margin-left: 40px;
     cursor: pointer;
+    span{
+      color:#f6f2ef;
+    }
   }
   @media screen and (max-width: 500px) {
     display: flex;
@@ -41,20 +44,21 @@ const StyledNav = styled.div`
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   padding: 24px;
-  color: #283c46;
+  color: #f6f2ef;
   font-family: "Roboto Condensed", serif;
   font-size: 1.5rem;
   margin-right: 40px;
 `;
 
 const StyledLoginNavLink = styled(NavLink)`
-  background-color: #22283a;
+  background-color: #2DA561;
   color: #ffffff;
   padding: 8px 16px;
   border: 0.1em solid #22283a;
   border-radius: 4px;
   font-size: 1.5rem;
   margin-right: 20px;
+  background-color: black;
   :hover {
     background-color: #2da562;
     border: 0.1em solid #2da562;
