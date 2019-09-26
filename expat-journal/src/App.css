@@ -77,18 +77,16 @@
 
 
 /* Profile.js */
-.profile-trip-div{
+/* .profile-trip-div{
   /* border: 1px solid black; */
-  font-size:rem;
+  /* font-size:rem;
 }
 .main-pic-profile{
   width:70%;
-}
+} */ */
 
 /* Trip Component*/
-.trip-wrapper {
-  
-}
+
 .header-container {
   margin: 30px 0;
 }

@@ -25,9 +25,13 @@ function Profile(props) {
     }
     return (
         <div className='profile-wrapper'>
-             <h1>{`Hello, ${user.first_name}`}</h1>
+            <div className='header-container'>
+                <h1>{`Hello, ${user.first_name}`}</h1>
+            </div>
             {/* banner image of the profile */}
-            <img className="main-pic-profile" src='https://images.unsplash.com/photo-1567913300214-364d5256df1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80'></img>
+            <div className='public-trip-header-div'>
+                <img className="public-trip-header-img" src='https://images.unsplash.com/photo-1567913300214-364d5256df1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80'></img>
+            </div>
             {/* header with the location of the trip */}
            
 
