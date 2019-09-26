@@ -1,0 +1,8 @@
+{
+    "version": 2,
+    "name": "expat-journal",
+    "builds": [{ "src": "expat-journal/package.json", "use": "@now/static-build", "config": {"distDir": "build"} }],
+    "routes": [
+        { "src": "/(.*)", "dest": "expat-journal/$1" }
+    ]
+}
