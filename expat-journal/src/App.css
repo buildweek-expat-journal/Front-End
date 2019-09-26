@@ -77,24 +77,55 @@ p {
 	width: 70%;
 }
 
-/* Profile.js */
-.profile-trip-div {
-	/* border: 1px solid black; */
-	font-size: rem;
-}
-.main-pic-profile {
-	width: 70%;
-}
-
 /* Trip Component*/
 
+.header-container {
+  margin: 30px 0;
+}
+.header-container h1 {
+  margin: 0;
+}
+
+.private-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+  margin-bottom: 20px;
+}
+.private-button {
+  width: 100px;
+  border-radius: 5px;
+  color: white;
+}
+
+#edit {
+  background: #d36d00;
+}
+
+#delete {
+  background: red;
+}
+
+/* from ryan */
+.private-trip-header-div{
+  height: 40vh;
+  overflow: hidden;
+  position: relative
+}
+.private-trip-header-img {
+  position: absolute;
+  top:-100%; left:0; right: 0; bottom:-90%;
+  margin: auto;
+  width: 90%;
+}
+
 .trip-sub-nav {
+
 	width: 93%;
 	margin: 10px auto 0;
 	display: flex;
 	justify-content: center;
 	border-radius: 5px;
-	border-bottom: 1px solid lightgrey;
 }
 
 .public-trip-header-div {
@@ -103,41 +134,52 @@ p {
 	position: relative;
 }
 .public-trip-header-img {
-	position: absolute;
-	top: -100%;
-	left: 0;
-	right: 0;
-	bottom: -90%;
-	margin: auto;
+  position: absolute;
+  top:-100%; left:0; right: 0; bottom:-90%;
+  margin: auto;
+  width: 90%;
 }
 
 .public-trip-content {
-	background: rgb(238, 238, 238);
-	border: 1px solid lightgrey;
-	border-top: none;
-	border-radius: 5px;
-	width: 93%;
-	margin: 0 auto;
-	font-size: 125%;
-	padding-top: 10px;
-	display: flex;
-	flex-direction: row;
+  /* background: rgb(238, 238, 238); */
+  /* border: 1px solid lightgrey; */
+  border-top: none;
+  border-radius: 5px;
+  width: 93%;
+  margin: 0 auto;
+  font-size: 125%;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.blog-container {
+  padding: 1% 10%;
+  border: 1px solid grey;
 }
 
 .trip-sub-nav-tab {
-	background: rgb(238, 238, 238);
-	border: 1px solid lightgrey;
-	border-bottom: rgb(238, 238, 238);
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	margin: 0 5px;
-	padding: 15px;
-	font-size: 150%;
-	color: black;
+  /* background: rgb(238, 238, 238); */
+  border: 1px solid lightgrey;
+  /* border-bottom:  rgb(238, 238, 238); */
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin: 0 2%;
+  padding: 15px;
+  font-size: 150%;
+  color: black;
+  width: 200px;
 }
 
 .image-list-container {
-	width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 /* Blog */
+.blog-name {
+  color: grey;
+}
