@@ -285,9 +285,9 @@ const SignUpForm = props => {
               value={register.profileType}
               onChange={handleChanges}
             >
-              <option value="" label="Select Profile Type" />
-              <option value="private profile" label="private profile" />
-              <option value="public profile" label="public profile" />
+              <option value="" label="Who are you?" />
+              <option value="private profile" label="Viewer" />
+              <option value="public profile" label="Expat" />
             </StyledSelect>
             {errors.profileType && touched.profileType && (
               <StyledError>{errors.profileType}</StyledError>
