@@ -5,6 +5,7 @@ import axios from 'axios'
 import { ProfileContext } from '../contexts/ProfileContext';
 import { TripContext } from '../contexts/TripContext';
 import TripImageList from './TripImageList';
+import { Card, Image, Modal, Button } from "semantic-ui-react";
 
 
 
@@ -17,7 +18,7 @@ function Trip(props) {
     useEffect(() => {
         axios.get(`https://expat-journal-api.herokuapp.com/trips/${props.match.params.lid}`)
         .then((res) => {
-            // console.log(res.data)
+            console.log(res.data,"stateeee")
             setState(res.data)
         })
         axios.get(`https://expat-journal-api.herokuapp.com/users/${props.match.params.id}`)
@@ -28,13 +29,45 @@ function Trip(props) {
         })
     },[props.match.params.lid, props.match.params.id])
 
+    const BlogButton = () => (
+        <Modal
+          trigger={
+            <Button>
+              Blog
+            </Button>
+          }
+        >
+          <Modal.Header>{user.first_name}'s Blog</Modal.Header>
+         
+         <h1>{state.description}</h1> 
+        
+        </Modal>
+      );
+
+      const ImageButton = () => (
+        <Modal
+          trigger={
+            <Button>
+              Images
+            </Button>
+          }
+        >
+          <Modal.Header>{user.first_name}'s Trip Images</Modal.Header>
+         
+          <TripImageList /> 
+        
+        </Modal>
+      );
+
+
+
     return (
         <div className='trip-wrapper'>
             {/* header with the location of the trip */}
 
             {/* {console.log(props)} */}
             <h1>{state.location}</h1>
-            <h1>this</h1>
+            
             <h2 onClick={() => props.history.push(`/traveler/${props.match.params.id}`)}>{`by ${user.first_name} ${user.last_name}`}</h2>
 
             {/* banner image of the location */}
@@ -45,9 +78,10 @@ function Trip(props) {
             {/* bottom section of page underneath the banner image that will display the tabs */}
             <nav className='trip-sub-nav'>
                 {/*  Blog tab with a description of that given trip */}
-                <NavLink className='trip-sub-nav-tab' to={`/traveler/${props.match.params.id}/location/${props.match.params.lid}/`}>Blog</NavLink>
+                
+                {/* <NavLink className='trip-sub-nav-tab' to={`/traveler/${props.match.params.id}/location/${props.match.params.lid}/`}>Blog</NavLink> */}
                 {/* links to a Pictures tab with an image grid of a given trip */}
-                <NavLink className='trip-sub-nav-tab' to={`/traveler/${props.match.params.id}/location/${props.match.params.lid}/images`}>Images</NavLink>
+                {/* <NavLink className='trip-sub-nav-tab' to={`/traveler/${props.match.params.id}/location/${props.match.params.lid}/images`}>Images</NavLink> */}
             </nav>
 
             {/* renders the blog text/description of the trip */}
@@ -55,22 +89,25 @@ function Trip(props) {
                 <Switch>
                     <TripContext.Provider value={{state, setState}}>
                         <div className='public-trip-content'>
-                            <Route 
+                            {/* <Route 
                                 exact path={`/traveler/:id/location/:lid`}
                                 render={(state) => {
                                     console.log(state)
                                     return <Blog description={state.description}/> 
                                 }}
-                            />
+                            /> */}
                             {/* routes to images */}
                             <Route 
                                 exact path="/traveler/:id/location/:lid/images" 
                                 render={() => <TripImageList /> }
                             />
+                            <BlogButton/>
+                            <ImageButton/>
                         </div>
                     </TripContext.Provider> 
                 </Switch>
             </div>
+         
         </div>
     )
 }

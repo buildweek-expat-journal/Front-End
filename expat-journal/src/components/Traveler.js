@@ -22,26 +22,15 @@ function Traveler(props) {
         })
     },[])
 
-    const BookingButton = (event, element) => (
-        <Modal
-          trigger={
-            <Button>
-              View Trips
-            </Button>
-          }
-        >
-          <Modal.Header>View Trips</Modal.Header>
-         <h1>hi</h1>
-         <h1></h1>
-          <Login/>
-        </Modal>
-      );
+
 
     const clickHandle = (event, element) => {
         event.persist()
         console.log(element.id)
         props.history.push(`/traveler/${user.id}/location/${element.id}`)
+        
     }
+    
     return (
         <div className='profile-wrapper'>
             {console.log(user)}
@@ -57,16 +46,16 @@ function Traveler(props) {
             {/* bottom section of page underneath the banner image that will display the tabs */}
             <div>
                 <h2>{`${user.first_name}'s Trips`}</h2>
-                {/* <img src={user.trips.photo[2]}></img> */}
+               
                 
                 <div>
                     {console.log(user)}
                 { !user.trips ? <h3>Loading</h3> : 
                     user.trips.map(element => {
                         console.log(user)
-                        return <div  className="traveler-trip-div" onClick={(event) => clickHandle(event, element)} key={element.id} style={{backgroundImage: `url(${element.locationCardUrl})`}}></div>
+                        return <div  className="traveler-trip-div" onClick={(event) => clickHandle(event, element)} key={element.id} style={{backgroundImage: `url(${element.locationCardUrl})`}}>{element.location}</div>
                 })}
-                {/* <BookingButton/> */}
+                
                 </div>
             </div>
             

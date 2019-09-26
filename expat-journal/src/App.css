@@ -74,6 +74,18 @@
 .main-pic-traveler{
   width:70%;
 }
+.traveler-trip-div{
+  /* border: 1px solid black; */
+
+  font-size:2rem;
+  margin: 1rem;
+  
+}
+
+.traveler-trip-div:hover {
+  transform: scale(1.1);
+  color:rgba(0, 0, 0, 0.726);
+}
 
 
 /* Profile.js */
@@ -119,6 +131,7 @@
   padding-top: 10px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .trip-sub-nav-tab {
@@ -135,8 +148,28 @@
 
 .image-list-container {
   width: 100%;
+  display:flex;
+  align-items: center;
+
 }
 
 /* Blog */
-
-
+/* modal */
+.ui.active.modal{
+text-align: center;
+ 
+}
+/* modal button */
+.ui.button{
+  background: rgb(238, 238, 238);
+  border: 1px solid lightgrey;
+  border-bottom:  rgb(238, 238, 238);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin: 0 5px;
+  padding: 15px;
+  font-size: 150%;
+  font-family: "Roboto Condensed", serif;
+  color: black;
+  font-weight: 100;
+}
