@@ -64,7 +64,7 @@ function Traveler(props) {
                 { !user.trips ? <h3>Loading</h3> : 
                     user.trips.map(element => {
                         console.log(user)
-                        return <div  className="traveler-trip-div" onClick={(event) => clickHandle(event, element)} key={element.id} style={{backgroundImage: `url(${element.locationCardUrl})`}}></div>
+                        return <div  className="traveler-trip-div" onClick={(event) => clickHandle(event, element)} key={element.id} style={{backgroundImage: `url(${element.locationCardUrl})`}}>{element.location}</div>
                 })}
                 {/* <BookingButton/> */}
                 </div>
