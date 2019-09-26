@@ -48,6 +48,8 @@ const StyledNavLink = styled(NavLink)`
 `;
 
 export default function Nav(props) {
+  const userId = localStorage.getItem('user_id');
+
   return (
       <div>
     <StyledNav>
@@ -55,12 +57,15 @@ export default function Nav(props) {
 
         <div onClick={() => props.history.push('/')} className="logo">🌎 &nbsp;Expat<span>Journal</span></div>
 
-
+      {console.log(props)}
       <StyledNavLink exact to="/" activeClassName="activeNavButton">
         Home
       </StyledNavLink>
       <StyledNavLink to="/browse" activeClassName="activeNavButton">
         Browse
+      </StyledNavLink>
+      <StyledNavLink to={`/profile/${userId}`} activeClassName="activeNavButton">
+        My Profile
       </StyledNavLink>
       <StyledNavLink to="/login" className="login-btn" activeClassName="activeNavButton">
         Login
