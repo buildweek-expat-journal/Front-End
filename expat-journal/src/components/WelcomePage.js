@@ -78,20 +78,25 @@ const StyledContainer = styled.div`
   }
 `;
 
+export default class WelcomePage extends React.Component {
 
-export default function WelcomePage(props) {
-  return (
-    <StyledContainer>
-      <StyledLeft>
-        <h1>Welcome to Expat Journal</h1>
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <StyledContainer>
+        <StyledLeft>
+          <h1>Welcome to Expat Journal</h1>
 
-        <StyledButton onClick={() => props.history.push('/login')}>Log In</StyledButton>
-      </StyledLeft>
+          <StyledButton onClick={() => this.props.history.push('/login')}>Log In</StyledButton>
+        </StyledLeft>
 
-      <StyledRight>
-        <h1 className="member-txt">Not a member?</h1>
-        <SignUp {...props} />
-      </StyledRight>
-    </StyledContainer>
-  );
+        <StyledRight>
+          <h1 className="member-txt">Not a member?</h1>
+          <SignUp {...this.props} />
+        </StyledRight>
+      </StyledContainer>
+    );
+  }
 }
