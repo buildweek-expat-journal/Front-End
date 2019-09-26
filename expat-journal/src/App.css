@@ -86,6 +86,15 @@
 }
 
 /* Trip Component*/
+.trip-wrapper {
+  
+}
+.header-container {
+  margin: 30px 0;
+}
+.header-container h1 {
+  margin: 0;
+}
 
 .trip-sub-nav {
   width: 93%;
@@ -93,7 +102,7 @@
   display: flex;
   justify-content: center;
   border-radius: 5px;
-  border-bottom: 1px solid lightgrey;
+  /* border-bottom: 1px solid lightgrey; */
 
 }
 
@@ -109,8 +118,8 @@
 }
 
 .public-trip-content {
-  background: rgb(238, 238, 238);
-  border: 1px solid lightgrey;
+  /* background: rgb(238, 238, 238); */
+  /* border: 1px solid lightgrey; */
   border-top: none;
   border-radius: 5px;
   width: 93%;
@@ -123,25 +132,33 @@
 }
 
 .blog-container {
-  margin: 3%;
+  padding: 1% 10%;
+  border: 1px solid grey;
 }
 
 .trip-sub-nav-tab {
-  background: rgb(238, 238, 238);
+  /* background: rgb(238, 238, 238); */
   border: 1px solid lightgrey;
-  border-bottom:  rgb(238, 238, 238);
+  /* border-bottom:  rgb(238, 238, 238); */
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  margin: 0 5px;
+  margin: 0 2%;
   padding: 15px;
   font-size: 150%;
   color: black;
+  width: 200px;
 }
 
 .image-list-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
 }
 
 /* Blog */
+.blog-name {
+  color: grey;
+}
 
 
