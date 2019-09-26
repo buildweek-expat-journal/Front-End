@@ -54,6 +54,10 @@ function App() {
     trip_id: ''
   };
 
+  const defaultImg =[{url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80'},
+  {url: 'https://images.unsplash.com/photo-1495954484750-af469f2f9be5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'},
+  {url: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'}]
+
   //Each public traveler displayed on public browse page with Card
   const profiles = [];
   const userTrips = [];
@@ -61,12 +65,10 @@ function App() {
   const[travelerState, setTraveler] = useState(traveler);
   const[locationState, setLocation] = useState(location);
   const[profilesState, setProfiles] = useState(profiles);
-  const[tripsState, setUserTrips] = useState(userTrips);
+  const[tripsState, setUserTrips] = useState(defaultImg);
   const[loginState, setLogin] = useState(loginCreds);
 
-  const changeTraveler = () => {
-    setTraveler()
-  }
+
 
   return (
 
@@ -76,11 +78,13 @@ function App() {
           {/* <Nav /> */}
           <Route  path="/" component={Nav}/>
 
-          <Switch>
+          
             <Route exact path="/browse" component={Browse} />
             <PrivateRoute exact path='/profile/:id' component={Profile} />
             {/* <PrivateRoute path="/profile/:id/location/:lid/edit" component={EditBlog} /> */}
-            <PrivateRoute path="/profile/:id/newTrip" component={NewTrip} />
+            <TripContext.Provider value={{tripsState, setUserTrips}}>
+              <PrivateRoute path="/profile/:id/newTrip" component={NewTrip} />
+            </TripContext.Provider>
             <PrivateRoute path="/profile/:id/location/:lid" component={EditTrip} />
             {/* <PrivateRoute path="/profile/:id/location/:lid" component={PrivateTrip} />  */}
             <ProfileContext.Provider value={{loginState, setLogin, setTraveler, travelerState}}>
@@ -89,7 +93,7 @@ function App() {
               <Route exact path="/traveler/:id" component={Traveler} />
               <Route path="/traveler/:id/location/:lid" component={Trip} />
             </ProfileContext.Provider> 
-          </Switch>
+         
         </div>
       </Router>
     </div>
@@ -97,3 +101,5 @@ function App() {
 }
 
 export default App;
+
+

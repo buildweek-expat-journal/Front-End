@@ -89,7 +89,7 @@ export default function WelcomePage(props) {
 
       <StyledRight>
         <h1 className="member-txt">Not a member?</h1>
-        <SignUp />
+        <SignUp {...props} />
       </StyledRight>
     </StyledContainer>
   );

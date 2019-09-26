@@ -7,6 +7,7 @@ import { AllTripsContext } from '../contexts/AllTripsContext';
 export default function EditBlog (props) {
     const { state, setState } = useContext(AllTripsContext);
     console.log(props)
+    var edit = "";
 
     const handleChange = (event) => {
         setState({...state, [event.target.name]: event.target.value});
@@ -15,10 +16,12 @@ export default function EditBlog (props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        edit=state
+        delete edit.photos
         axiosWithAuth()
-            .put(`/trips/${state.id}`, state)
+            .put(`/trips/${state.id}`, edit)
             .then(res => {
-                console.log(res)
+                props.history.push(`/profile/${props.match.params.id}/location/${props.match.params.lid}`)
             })
             .catch(err => console.log(err));
     }

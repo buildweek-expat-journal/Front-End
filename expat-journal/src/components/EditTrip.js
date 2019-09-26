@@ -13,16 +13,22 @@ function EditTrip(props) {
     const [state, setState] = useState({})
     useEffect(() => {
         console.log(props)
-        axiosWithAuth.get(`https://expat-journal-api.herokuapp.com/trips/${props.match.params.lid}`)
+        axiosWithAuth().get(`https://expat-journal-api.herokuapp.com/trips/${props.match.params.lid}`)
         .then((res) => {
             // console.log(res.data)
             setState(res.data)
         })
-    },[])
+    },[props])
 
      
   function edit() {
-    props.history.push('/profile/:id/location/:lid/edit')
+    props.history.push(`/profile/${props.match.params.id}/location/${props.match.params.lid}/edit`)
+  }
+  function deleteTrip() {
+    axiosWithAuth().delete(`https://expat-journal-api.herokuapp.com/trips/${props.match.params.lid}`)
+    .then((res) => {
+    props.history.push(`/profile/${props.match.params.id}`)
+    })
   }
 
     return (
@@ -33,6 +39,7 @@ function EditTrip(props) {
              {/* {console.log(props)} */}
              <h1>{state.location}</h1>
              <button onClick={edit}>Edit trip</button>
+             <button onClick={deleteTrip}>Delete trip</button>
             {/* banner image of the location */}
             {!state ? '' : console.log(state)}
             <img src={!state.photos ? '' : state.photos[0].url} alt='tokyo street'></img>
