@@ -52,6 +52,7 @@ const StyledInput = styled.input`
   margin-bottom: 20px;
   height: 3.125rem;
   border-radius: 0.25rem;
+  /*  @media screen and (max-width: 500px) { */
 `;
 
 const StyledSelect = styled.select`
@@ -69,13 +70,15 @@ const StyledButton = styled.button`
   border: 1px solid #22283a;
   padding: 1rem;
   line-height: 1;
-  margin: 1rem;
   background-color: 250ms;
-  margin-bottom: 40px;
-  margin-right: 40px;
+  margin: 30 40 40 0;
   border-radius: 4px;
   font-size: 2rem;
-  margin-top: 30px;
+
+  @media screen and (max-width: 500px) {
+    text-align: center;
+    margin: 0 auto;
+  }
 
   :hover {
     cursor: pointer;
@@ -89,12 +92,15 @@ const StyledSignUp = styled.form`
   width: 500px;
   border: 1px solid black;
   margin: 0 auto;
-  height: 800px;
+  height: 750px;
   background-color: #f7f7f7;
   font-family: "Roboto", sans-serif;
   text-align: center;
   padding-left: 20px;
   box-shadow: 10px 10px 16px 0px rgba(0, 0, 0, 0.75);
+  @media screen and (max-width: 500px) {
+    padding-left: initial;
+  }
 
   h2 {
     text-align: left;
@@ -106,9 +112,16 @@ const StyledSignUp = styled.form`
     font-weight: 400;
   }
 
-  /* label {
-    padding-left: 10px;
-  } */
+  @media screen and (max-width: 500px) {
+    width: 80%;
+    box-shadow: none;
+    margin-bottom: 5%;
+    h2 {
+      text-align: center;
+      padding-left: initial;
+    }
+  }
+
 `;
 
 const StyledError = styled.div`
@@ -116,6 +129,9 @@ const StyledError = styled.div`
   text-align: left;
   padding-left: 25px;
   margin-top: -20px;
+  @media screen and (max-width: 500px) {
+    padding-left: 21px;
+  }
 `;
 
 const SignUpForm = props => {

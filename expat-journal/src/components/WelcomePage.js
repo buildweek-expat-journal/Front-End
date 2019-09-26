@@ -30,7 +30,7 @@ const StyledButton = styled.button`
   padding: 10px 15px;
   background-color: #2DA561;
   color: #fff;
-  width: 100px;
+  width: 180px;
   border: 1px solid #2DA561;
   padding: 1rem;
   line-height: 1;
@@ -38,7 +38,7 @@ const StyledButton = styled.button`
   margin-bottom: 40px;
   margin-right: 40px;
   border-radius: 4px;
-  font-size: 1.125rem;
+  font-size: 2rem;
   :hover {
     cursor: pointer;
     background-color: white;

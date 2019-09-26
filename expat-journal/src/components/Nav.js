@@ -47,6 +47,21 @@ const StyledNavLink = styled(NavLink)`
   margin-right: 40px;
 `;
 
+const StyledLoginNavLink = styled(NavLink)`
+  background-color: #22283a;
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 0.1em solid #22283a;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  margin-right: 20px;
+  :hover{
+    background-color: #2da562;
+    border: #2da562;
+    color: #fff !important; 
+  }
+`;
+
 export default function Nav(props) {
   return (
     <div>
@@ -61,13 +76,13 @@ export default function Nav(props) {
         <StyledNavLink to="/browse" activeClassName="activeNavButton">
           Browse
         </StyledNavLink>
-        <StyledNavLink
+        <StyledLoginNavLink
           to="/login"
           className="login-btn"
           activeClassName="activeNavButton"
         >
           Login
-        </StyledNavLink>
+        </StyledLoginNavLink>
       </StyledNav>
     </div>
   );

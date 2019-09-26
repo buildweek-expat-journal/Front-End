@@ -6,6 +6,16 @@ import axios from "axios";
 
 import { ProfileContext } from "../contexts/ProfileContext";
 
+const asiaImage = require("../../src/projectImages/asia.jpeg");
+
+const StyledContainer = styled.div`
+  padding-top: 100px;
+  background-image: url(${asiaImage});
+  background-repeat: no-repeat;
+  padding-bottom: 100px;
+
+`;
+
 const StyledLogin = styled.div`
   width: 500px;
   border: 1px solid #ced4da;
@@ -87,6 +97,7 @@ const LoginForm = props => {
   };
 
   return (
+    <StyledContainer>
     <StyledLogin>
       <Formik
         initialValues={{ email: "", password: "" }}
@@ -161,6 +172,7 @@ const LoginForm = props => {
         }}
       </Formik>
     </StyledLogin>
+    </StyledContainer>
   );
 };
 
