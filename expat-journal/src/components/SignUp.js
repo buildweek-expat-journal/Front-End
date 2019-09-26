@@ -91,9 +91,10 @@ const StyledButton = styled.button`
 const StyledSignUp = styled.form`
   width: 500px;
   border: 1px solid black;
+  border-radius: 0.25rem;
   margin: 0 auto;
   height: 750px;
-  background-color: #f7f7f7;
+  background-color: rgba(255, 255, 255, 0.9);
   font-family: "Roboto", sans-serif;
   text-align: center;
   padding-left: 20px;

@@ -55,10 +55,10 @@ const StyledLoginNavLink = styled(NavLink)`
   border-radius: 4px;
   font-size: 1.5rem;
   margin-right: 20px;
-  :hover{
+  :hover {
     background-color: #2da562;
-    border: #2da562;
-    color: #fff !important; 
+    border: 0.1em solid #2da562;
+    color: #fff !important;
   }
 `;
 

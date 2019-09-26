@@ -46,9 +46,8 @@ const StyledButton = styled.button`
     border: 1px solid #2da562;
   }
   @media screen and (max-width: 500px) {
-    width: 70%;
     margin-right: 0;
-    border: 1px solid #22283A;
+   
   }
 `;
 
