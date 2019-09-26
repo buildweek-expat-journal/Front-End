@@ -77,7 +77,6 @@ function App() {
           <Route  path="/" component={Nav}/>
 
           <Switch>
-            <Route exact path="/" component={WelcomePage} />
             <Route exact path="/browse" component={Browse} />
             <PrivateRoute exact path='/profile/:id' component={Profile} />
             {/* <PrivateRoute path="/profile/:id/location/:lid/edit" component={EditBlog} /> */}
@@ -85,8 +84,8 @@ function App() {
             <PrivateRoute path="/profile/:id/location/:lid" component={EditTrip} />
             {/* <PrivateRoute path="/profile/:id/location/:lid" component={PrivateTrip} />  */}
             <ProfileContext.Provider value={{loginState, setLogin, setTraveler, travelerState}}>
+              <Route exact path="/" component={WelcomePage} />
               <Route exact path="/login" component={LoginForm} />
-              <Route exact path="/signup" component={SignUpForm} />
               <Route exact path="/traveler/:id" component={Traveler} />
               <Route path="/traveler/:id/location/:lid" component={Trip} />
             </ProfileContext.Provider> 
