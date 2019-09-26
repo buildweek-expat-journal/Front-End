@@ -77,8 +77,21 @@ p {
 	width: 70%;
 }
 
-/* Trip Component*/
 
+.traveler-trips-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.traveler-trip-div {
+  font-size: 200%
+}
+
+/* Profile.js */
+.profile-trip-div {
+	/* border: 1px solid black; */
+	font-size: rem;
+/* Trip Component*/
 .header-container {
   margin: 30px 0;
 }
@@ -180,6 +193,13 @@ p {
 }
 
 /* Blog */
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 0px;
+}
+
 .blog-name {
   color: grey;
 }
