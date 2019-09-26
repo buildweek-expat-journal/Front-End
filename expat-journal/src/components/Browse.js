@@ -29,7 +29,7 @@ function Browse (props) {
 
     return (
         <div className="user-card-parent">
-            <h1>Expats</h1>
+            <h1 className="expats">Expats</h1>
             {/* <NavLink to={`/trips/${user.id}`}> */}
             <section className= "user-cards">
                 {userList.map(user => (

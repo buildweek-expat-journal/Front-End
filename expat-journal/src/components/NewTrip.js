@@ -31,11 +31,14 @@ export default function NewTrip (props) {
   }
 
   return(
-      <form onSubmit={event => handleSubmit(event)} className="loginForm">
-          <input type="text" placeholder="City, State/Country" name="location" value={state.location} onChange={ event => handleChange(event)}/>
-          <input type="text" placeholder="Short Description" name="short_desc" value={state.short_desc} onChange={ event => handleChange(event)}/>
-          <textarea type="text" placeholder="Blog" name="description" value={state.description} onChange={ event => handleChange(event)}/>
-          <button type="submit">Add Trip</button>
+    <div className='newTripPage'>
+      <form onSubmit={event => handleSubmit(event)} className="newTrip">
+          <input className="newTripItem" type="text" placeholder="City, State/Country" name="location" value={state.location} onChange={ event => handleChange(event)}/>
+          <input className="newTripItem" type="text" placeholder="Short Description" name="short_desc" value={state.short_desc} onChange={ event => handleChange(event)}/>
+          <textarea className="newTripItem" type="text" placeholder="Blog" name="description" value={state.description} onChange={ event => handleChange(event)}/>
+          <button className="add-trip newTripButton" type="submit">Add Trip</button>
       </form>
+    </div>
+
   )
 }

@@ -34,6 +34,11 @@ margin: 0
 	justify-content: space-around;
 }
 
+.expats {
+  margin-top: 0px!important;
+  padding-top: 30px
+}
+
 .user-card-container {
 	display: flex;
 
@@ -56,6 +61,12 @@ p {
 }
 
 /* pushes down Users h1 in Browse */
+.user-card-parent {
+	background-image: url(https://images.unsplash.com/photo-1436775423025-9233051c49d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .user-card-parent h1 {
 	margin: 3%;
 	font-size: 3rem;
@@ -93,6 +104,15 @@ p {
 	font-size: rem;
 }
 /* Trip Component*/
+.add-trip {
+  background: rgb(230, 230, 230);
+  width: 100px;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+}
+
 .header-container {
   margin: 30px 0;
 }
@@ -215,11 +235,51 @@ p {
 /* Blog */
 
 /* Footer */
-.footer {
-  position: absolute;
-  bottom: 0px;
+
+.footer-div {
+  width: 52%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-bar {
+  height: 18vh;
+}
+
+.footer-div h6{
+margin-left: 20px;
 }
 
 .blog-name {
   color: grey;
+}
+
+/* New Trip */
+.newTrip {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 0 auto;
+  padding: 20px;
+ 
+  background: rgb(231, 231, 231);
+  border: 1px solid lightgrey;
+  border-radius: 15px
+}
+
+.newTripButton {
+  background: lightgrey;
+  border: 1px solid rgb(158, 158, 158);
+}
+
+.newTripItem {
+  margin: 10px 0;
+}
+
+.newTripPage {
+  height: 90vh;
+  padding-top:200px;
+  background-image: url(https://images.unsplash.com/photo-1568478009690-45fdbd81f32d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
