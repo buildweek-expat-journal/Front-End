@@ -35,12 +35,14 @@ function EditTrip(props) {
         
         <div className='trip-wrapper'>
             {/* header with the location of the trip */}
-
-             {/* {console.log(props)} */}
-             <div className='header-container'>
+            <div className='header-container'>
                 <h1>{state.location}</h1>
-                <button className='trip-sub-nav-tab' onClick={edit}>Edit trip</button>
-                <button className='trip-sub-nav-tab' onClick={deleteTrip}>Delete trip</button>
+            </div>
+           
+             {/* {console.log(props)} */}
+             <div className='private-button-container'>
+                <button className='private-button' id='edit' onClick={edit}>Edit trip</button>
+                <button className='private-button' id='delete' onClick={deleteTrip}>Delete trip</button>
             </div>
             {/* banner image of the location */}
             {!state ? '' : console.log(state)}

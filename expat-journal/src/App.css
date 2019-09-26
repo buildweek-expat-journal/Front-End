@@ -96,6 +96,25 @@
   margin: 0;
 }
 
+.private-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+  margin-bottom: 20px;
+}
+.private-button {
+  width: 100px;
+  border-radius: 5px;
+  color: white;
+}
+
+#edit {
+  background: #d36d00;
+}
+
+#delete {
+  background: red;
+}
 
 /* from ryan */
 .public-trip-header-div{
