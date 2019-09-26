@@ -9,19 +9,22 @@ const StyledNav = styled.div`
   align-items: center;
   font-size: 2rem;
   width: 100%;
-  background-color: #F6F2EF;
-  font-family: 'Roboto Condensed', serif;
+  background-color: #2DA561;
+  font-family: "Roboto Condensed", serif;
   span {
-      font-weight: bold;
+    font-weight: bold;
   }
   .logo {
-      flex-grow: 2;
-      justify-content: flex-start;
-      text-align: left;
-      padding-left: 20px;
-      color: black;
-      margin-left: 40px;
-      cursor: pointer;
+    flex-grow: 2;
+    justify-content: flex-start;
+    text-align: left;
+    padding-left: 20px;
+    color: #fffc88;
+    margin-left: 40px;
+    cursor: pointer;
+    span{
+      color:#f6f2ef;
+    }
   }
   @media screen and (max-width: 500px) {
     display: flex;
@@ -41,37 +44,60 @@ const StyledNav = styled.div`
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   padding: 24px;
-  color: #283c46;
+  color: #f6f2ef;
   font-family: "Roboto Condensed", serif;
   font-size: 1.5rem;
   margin-right: 40px;
 `;
 
-export default function Nav(props) {
+
+const StyledLoginNavLink = styled(NavLink)`
+  background-color: #2DA561;
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 0.1em solid #22283a;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  margin-right: 20px;
+  background-color: black;
+  :hover {
+    background-color: #2da562;
+    border: 0.1em solid #2da562;
+    color: #fff !important;
+  }
+`;
+
+export default class Nav extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
   const userId = localStorage.getItem('user_id');
-
-  return (
+  render() {
+    return (
       <div>
-    <StyledNav>
-
-
-        <div onClick={() => props.history.push('/')} className="logo">🌎 &nbsp;Expat<span>Journal</span></div>
-
-      {console.log(props)}
-      <StyledNavLink exact to="/" activeClassName="activeNavButton">
-        Home
-      </StyledNavLink>
-      <StyledNavLink to="/browse" activeClassName="activeNavButton">
-        Browse
-      </StyledNavLink>
-      <StyledNavLink to={`/profile/${userId}`} activeClassName="activeNavButton">
-        My Profile
-      </StyledNavLink>
-      <StyledNavLink to="/login" className="login-btn" activeClassName="activeNavButton">
-        Login
-      </StyledNavLink>
-
-    </StyledNav>
-    </div>
-  );
+        <StyledNav>
+          <div onClick={() => this.props.history.push("/")} className="logo">
+            🌎 &nbsp;Expat<span>Journal</span>
+          </div>
+          <StyledNavLink exact to="/" activeClassName="activeNavButton">
+            Home
+        </StyledNavLink>
+          <StyledNavLink to="/browse" activeClassName="activeNavButton">
+            Browse
+        </StyledNavLink>
+        <StyledNavLink to={`/profile/${userId}`} activeClassName="activeNavButton">
+          My Profile
+        </StyledNavLink>
+          <StyledLoginNavLink
+            to="/login"
+            className="login-btn"
+            activeClassName="activeNavButton"
+          >
+            Login
+        </StyledLoginNavLink>
+        </StyledNav>
+      </div>
+    );
+  }
 }
