@@ -13,7 +13,6 @@ const StyledContainer = styled.div`
   background-image: url(${asiaImage});
   background-repeat: no-repeat;
   padding-bottom: 100px;
-
 `;
 
 const StyledLogin = styled.div`
@@ -28,13 +27,6 @@ const StyledLogin = styled.div`
   padding-left: 24px;
   box-shadow: 10px 10px 16px 0px rgba(0, 0, 0, 0.75);
   margin-top: 200px;
-
- /*  h1 {
-    padding-bottom: 30px;
-    text-align: center;
-    font-family: "Roboto Condensed", serif;
-    font-size: 32px;
-  } */
 
   h2 {
     padding: 1rem;
@@ -76,7 +68,7 @@ const StyledButton = styled.button`
   margin-bottom: 40px;
   margin-right: 40px;
   border-radius: 4px;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   :hover {
     cursor: pointer;
     background-color: white;
@@ -88,7 +80,7 @@ const StyledButton = styled.button`
 const StyledError = styled.div`
   color: red;
   padding-left: 15px;
-  margin-top: -2px;
+  margin-top: -6px;
 `;
 
 const LoginForm = props => {
@@ -101,80 +93,83 @@ const LoginForm = props => {
 
   return (
     <StyledContainer>
-    <StyledLogin>
-      <Formik
-        initialValues={{ email: "", password: "" }}
-        onSubmit={(values, { setValues }) => {
-          axios
-            .post(
-              `https://expat-journal-api.herokuapp.com/users/login`,
-              loginState
-            )
-            .then(response => {
-              console.log(response.data);
-              localStorage.setItem("token", response.data.token);
-              props.history.push(`/profile/${response.data.user_id}`);
-            })
-            .catch(err => {
-              console.log(err.message);
-            });
-        }}
-        validationSchema={Yup.object().shape({
-          email: Yup.string()
-            .email()
-            .required("Required"),
+      <StyledLogin>
+        <Formik
+          initialValues={{ email: "", password: "" }}
+          onSubmit={(values, { setValues }) => {
+            axios
+              .post(
+                `https://expat-journal-api.herokuapp.com/users/login`,
+                loginState
+              )
+              .then(response => {
+                console.log(response.data);
+                localStorage.setItem("token", response.data.token);
+                props.history.push(`/profile/${response.data.user_id}`);
+              })
+              .catch(err => {
+                console.log(err.message);
+              });
+          }}
+       /*    validationSchema={Yup.object().shape({
+            email: Yup.string()
+              .email()
+              .required("Required"),
 
-          password: Yup.string()
-            .required("No password provided.")
-            .min(5, "Password should be a minimum of 8 characters.")
-        })}
-      >
-        {props => {
-          const {
-            values,
-            touched,
-            errors,
-            isSubmitting,
-            handleChange,
-            handleSubmit
-          } = props;
-          return (
-            <form onSubmit={handleSubmit}>
-              <h2>Login</h2>
-              <label htmlFor="email">Email</label>
-              <StyledInput
-                name="email"
-                type="text"
-                placeholder="Enter your email"
-                value={loginState.email}
-                onChange={handleChanges}
-                className={errors.email && touched.email && "error"}
-              />
-              {errors.email && touched.email && (
-                <StyledError>{errors.email}</StyledError>
-              )}
-              <br />
-              <label htmlFor="email">Password</label>
-              <StyledInput
-                name="password"
-                type="password"
-                placeholder="Enter your password"
-                value={loginState.password}
-                onChange={handleChanges}
-                className={errors.password && touched.password && "error"}
-              />
-              {errors.password && touched.password && (
-                <StyledError>{errors.password}</StyledError>
-              )}
-              <br />
-              <StyledButton type="submit" disabled={isSubmitting}>
-                Login
-              </StyledButton>
-            </form>
-          );
-        }}
-      </Formik>
-    </StyledLogin>
+            password: Yup.string()
+              .required("No password provided.")
+              .min(5, "Password should be a minimum of 8 characters.")
+          })} */
+          //I wasn't sure why the yup validation was commented out. I 
+          //commented it back in so that I could style the errors etc. but it
+          //isn't fully working the way it was. (Only .required error shows up.)
+        >
+          {props => {
+            const {
+              values,
+              touched,
+              errors,
+              isSubmitting,
+              handleChange,
+              handleSubmit
+            } = props;
+            return (
+              <form onSubmit={handleSubmit}>
+                <h2>Login</h2>
+                <label htmlFor="email">Email</label>
+                <StyledInput
+                  name="email"
+                  type="text"
+                  placeholder="Enter your email"
+                  value={loginState.email}
+                  onChange={handleChanges}
+                  className={errors.email && touched.email && "error"}
+                />
+                {errors.email && touched.email && (
+                  <StyledError>{errors.email}</StyledError>
+                )}
+                <br />
+                <label htmlFor="email">Password</label>
+                <StyledInput
+                  name="password"
+                  type="password"
+                  placeholder="Enter your password"
+                  value={loginState.password}
+                  onChange={handleChanges}
+                  className={errors.password && touched.password && "error"}
+                />
+                {errors.password && touched.password && (
+                  <StyledError>{errors.password}</StyledError>
+                )}
+                <br />
+                <StyledButton type="submit" disabled={isSubmitting}>
+                  Login
+                </StyledButton>
+              </form>
+            );
+          }}
+        </Formik>
+      </StyledLogin>
     </StyledContainer>
   );
 };

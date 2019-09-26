@@ -122,7 +122,6 @@ const StyledSignUp = styled.form`
       padding-left: initial;
     }
   }
-
 `;
 
 const StyledError = styled.div`
@@ -169,7 +168,7 @@ const SignUpForm = props => {
             console.log(err.message);
           });
       }}
-      validationSchema={Yup.object().shape({
+   /*    validationSchema={Yup.object().shape({
         first_name: Yup.string().required("First Name is required"),
         last_name: Yup.string().required("Last Name is required"),
         email: Yup.string()
@@ -183,7 +182,9 @@ const SignUpForm = props => {
           .oneOf([Yup.ref("password"), null], "Passwords must match")
           .required("Confirm Password is required"),
         profileType: Yup.string().required("Please select a profile type")
-      })}
+      })} */
+
+      //I wasn't sure why the yup validation was commented out. I commented it back in for styling the error messages but it isn't fully working the way it was. (Only .required error shows up.)//
     >
       {props => {
         const {
@@ -208,9 +209,7 @@ const SignUpForm = props => {
             {errors.first_name && touched.first_name && (
               <StyledError>{errors.first_name}</StyledError>
             )}
-
             {/*   <ErrorMessage name="first_name" component="div" /> */}
-
             {/* <label htmlFor="lastname">Last Name</label> */}
             <StyledInput
               name="last_name"
@@ -223,7 +222,6 @@ const SignUpForm = props => {
               <StyledError>{errors.last_name}</StyledError>
             )}
             {/*   <ErrorMessage name="lastName" component="div" /> */}
-
             {/*  <label htmlFor="email">Email</label> */}
             <StyledInput
               name="email"
@@ -250,8 +248,9 @@ const SignUpForm = props => {
               <StyledError>{errors.password}</StyledError>
             )}
             <br />
-
             {/* <label htmlFor="confirmPassword">Confirm Password</label> */}
+           {/*  //I put the confirm password field back in for styling but wasn't
+            sure if it was commented out because we're not going to use it? I also took the labels out for styling purposes because the form was so long - not sure what you guys think?// */}
             <StyledInput
               name="confirmPassword"
               type="password"
@@ -279,7 +278,6 @@ const SignUpForm = props => {
               <StyledError>{errors.profileType}</StyledError>
             )}
             <br />
-
             <StyledButton type="submit" disabled={isSubmitting}>
               Sign Up
             </StyledButton>
