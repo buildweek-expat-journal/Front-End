@@ -29,17 +29,19 @@ const StyledLogin = styled.div`
   box-shadow: 10px 10px 16px 0px rgba(0, 0, 0, 0.75);
   margin-top: 200px;
 
-  h1 {
+ /*  h1 {
     padding-bottom: 30px;
     text-align: center;
     font-family: "Roboto Condensed", serif;
     font-size: 32px;
-  }
+  } */
 
   h2 {
     padding: 1rem;
+    padding-top: 2rem;
     font-family: "Roboto Condensed", serif;
     font-size: 28px;
+    font-weight: 400;
   }
 
   label {
@@ -74,7 +76,7 @@ const StyledButton = styled.button`
   margin-bottom: 40px;
   margin-right: 40px;
   border-radius: 4px;
-  font-size: 1, 125rem;
+  font-size: 1.8rem;
   :hover {
     cursor: pointer;
     background-color: white;
@@ -86,6 +88,7 @@ const StyledButton = styled.button`
 const StyledError = styled.div`
   color: red;
   padding-left: 15px;
+  margin-top: -2px;
 `;
 
 const LoginForm = props => {
