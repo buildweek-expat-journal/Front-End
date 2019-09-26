@@ -96,12 +96,11 @@ function App() {
               <Route path="/traveler/:id/location/:lid" component={Trip} />
             </ProfileContext.Provider> 
         </div>
-         <Footer />
+         <Footer className="footer"/>
       </Router>
     </div>
   );
 }
 
 export default App;
-
 

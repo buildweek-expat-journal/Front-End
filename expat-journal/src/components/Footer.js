@@ -52,40 +52,17 @@ class Footer extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log(props)
   }
 
   render() {
 
     return (
       <StyledNav>
-        <StyledNavLink exact to="/" activeClassName="activeNavButton">
-          Terms
-        </StyledNavLink>
-        <StyledNavLink to="/" activeClassName="activeNavButton">
-          Privacy
-        </StyledNavLink>
-        <StyledNavLink to="/" activeClassName="activeNavButton">
-          Security
-        </StyledNavLink>
-        <StyledNavLink to="/" activeClassName="activeNavButton">
-          Help
-        </StyledNavLink>
+        <h6>© Copyright 2019</h6>
         <div onClick={() => this.props.history.push("/")} className="logo">
           🌎 &nbsp;
         </div>
-        <StyledNavLink to="/" activeClassName="activeNavButton">
-          Contact
-        </StyledNavLink>
-        <StyledNavLink to="/" activeClassName="activeNavButton">
-          API
-        </StyledNavLink>
-        <StyledNavLink to="/" activeClassName="activeNavButton">
-          Blog
-        </StyledNavLink>
-        <StyledNavLink to="/" activeClassName="activeNavButton">
-          About
-        </StyledNavLink>
-
       </StyledNav>
     )
   }

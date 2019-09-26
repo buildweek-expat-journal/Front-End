@@ -72,8 +72,10 @@ export default class Nav extends React.Component {
   constructor(props) {
     super(props);
   }
- 
-  render() { const userId = localStorage.getItem('user_id');
+
+  render() {
+    const userId = localStorage.getItem('user_id');
+
     return (
       <div>
         <StyledNav>

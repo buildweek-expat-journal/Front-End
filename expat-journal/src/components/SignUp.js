@@ -100,7 +100,7 @@ const StyledSignUp = styled.form`
   border: 0;
   border-radius: 0.25rem;
   margin: 0 auto;
-  height: 700px;
+  height: 650px;
   background-color: rgba(255, 255, 255, 0.9);
   font-family: "Roboto", sans-serif;
   text-align: center;
@@ -115,9 +115,9 @@ const StyledSignUp = styled.form`
 
   h2 {
     text-align: left;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
     padding-left: 1.7rem;
-    padding-top: 50px;
+    padding-top: 20px;
     font-size: 2rem;
     font-family: "Roboto Condensed", serif;
     font-weight: 400;
@@ -285,9 +285,9 @@ const SignUpForm = props => {
               value={register.profileType}
               onChange={handleChanges}
             >
-              <option value="" label="Select Profile Type" />
-              <option value="private profile" label="private profile" />
-              <option value="public profile" label="public profile" />
+              <option value="" label="Who are you?" />
+              <option value="private profile" label="Viewer" />
+              <option value="public profile" label="Expat" />
             </StyledSelect>
             {errors.profileType && touched.profileType && (
               <StyledError>{errors.profileType}</StyledError>

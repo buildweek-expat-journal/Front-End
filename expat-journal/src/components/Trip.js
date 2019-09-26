@@ -33,9 +33,12 @@ function Trip(props) {
             {/* header with the location of the trip */}
 
             {/* {console.log(props)} */}
-            <h1>{state.location}</h1>
-         
-            <button className="onclick-name" onClick={() => props.history.push(`/traveler/${props.match.params.id}`)}>{`Return to ${user.first_name} ${user.last_name}'s profile`}</button>
+
+            <div className='header-container'>
+              <h1>{state.location}</h1>
+
+              <button className="onclick-name" onClick={() => props.history.push(`/traveler/${props.match.params.id}`)}>{`Return to ${user.first_name} ${user.last_name}'s profile`}</button>
+            </div>
 
             {/* banner image of the location */}
             {!state ? '' : console.log(state)}
@@ -59,7 +62,7 @@ function Trip(props) {
                                 exact path={`/traveler/:id/location/:lid`}
                                 render={(state) => {
                                     console.log(state)
-                                    return <Blog description={state.description}/> 
+                                    return <Blog name={user.first_name} lastname={user.last_name} location={state.location} description={state.description}/> 
                                 }}
                             />
                             {/* routes to images */}
