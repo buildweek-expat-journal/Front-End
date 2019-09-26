@@ -63,6 +63,7 @@ const StyledSelect = styled.select`
   width: 90%;
   margin-bottom: 20px;
   height: 3.125rem;
+  
   @media screen and (max-width: 500px){
     border: 1px solid #ced4da;
   }
@@ -283,9 +284,9 @@ const SignUpForm = props => {
               value={register.profileType}
               onChange={handleChanges}
             >
-              <option value="" label="Select Profile Type" />
-              <option value="private profile" label="private profile" />
-              <option value="public profile" label="public profile" />
+              <option value="" label="Select Profile Type">Select Profile Type</option> 
+              <option value="private profile" label="private profile">Private Profile</option> 
+              <option value="public profile" label="public profile">Public Profile</option>
             </StyledSelect>
             {errors.profileType && touched.profileType && (
               <StyledError>{errors.profileType}</StyledError>
