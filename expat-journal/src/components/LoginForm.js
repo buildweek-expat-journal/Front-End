@@ -53,6 +53,7 @@ const StyledInput = styled.input`
   margin-bottom: 5px;
   height: 3.125rem;
   border-radius: 0.25rem;
+  border: 1px solid #ced4da;
 `;
 
 const StyledButton = styled.button`

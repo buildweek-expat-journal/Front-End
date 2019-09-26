@@ -52,7 +52,10 @@ const StyledInput = styled.input`
   margin-bottom: 20px;
   height: 3.125rem;
   border-radius: 0.25rem;
-  /*  @media screen and (max-width: 500px) { */
+  border: 1px solid #ced4da;
+   @media screen and (max-width: 500px) { 
+     margin: 10px auto;
+   }
 `;
 
 const StyledSelect = styled.select`
@@ -60,6 +63,9 @@ const StyledSelect = styled.select`
   width: 90%;
   margin-bottom: 20px;
   height: 3.125rem;
+  @media screen and (max-width: 500px){
+    border: 1px solid #ced4da;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -78,6 +84,7 @@ const StyledButton = styled.button`
   @media screen and (max-width: 500px) {
     text-align: center;
     margin: 0 auto;
+    font-size: 1.5rem;
   }
 
   :hover {
@@ -101,6 +108,7 @@ const StyledSignUp = styled.form`
   box-shadow: 10px 10px 16px 0px rgba(0, 0, 0, 0.75);
   @media screen and (max-width: 500px) {
     padding-left: initial;
+    height: 600px;
   }
 
   h2 {
@@ -111,6 +119,9 @@ const StyledSignUp = styled.form`
     font-size: 2rem;
     font-family: "Roboto Condensed", serif;
     font-weight: 400;
+    @media screen and (max-width: 500px){
+      padding-top: 20px;
+    }
   }
 
   @media screen and (max-width: 500px) {
