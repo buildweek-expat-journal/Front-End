@@ -97,6 +97,8 @@ const LoginForm = props => {
   };
 
   return (
+
+
     <StyledContainer>
       <StyledLogin>
         <Formik
@@ -110,6 +112,7 @@ const LoginForm = props => {
               .then(response => {
                 console.log(response.data);
                 localStorage.setItem("token", response.data.token);
+                localStorage.setItem("user_id", response.data.user_id);
                 props.history.push(`/profile/${response.data.user_id}`);
               })
               .catch(err => {
@@ -120,7 +123,6 @@ const LoginForm = props => {
             email: Yup.string()
               .email()
               .required("Required"),
-
             password: Yup.string()
               .required("No password provided.")
               .min(5, "Password should be a minimum of 8 characters.")

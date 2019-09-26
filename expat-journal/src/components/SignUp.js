@@ -173,9 +173,11 @@ const SignUpForm = props => {
             register
           )
           .then(response => {
-            console.log(response.data, "from signup");
-            localStorage.setItem("token", response.data.token);
-            props.history.push(`/profile/${response.data.user_id}`);
+            console.log(response.data, "from signup")
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem("user_id", response.data.user_id);
+          props.history.push(`/profile/${response.data.user_id}`)
+
           })
           .catch(err => {
             console.log(err.message);

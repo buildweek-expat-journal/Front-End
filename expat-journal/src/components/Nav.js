@@ -50,6 +50,7 @@ const StyledNavLink = styled(NavLink)`
   margin-right: 40px;
 `;
 
+
 const StyledLoginNavLink = styled(NavLink)`
   background-color: #2DA561;
   color: #ffffff;
@@ -71,6 +72,7 @@ export default class Nav extends React.Component {
   constructor(props) {
     super(props);
   }
+  const userId = localStorage.getItem('user_id');
   render() {
     return (
       <div>
@@ -78,12 +80,14 @@ export default class Nav extends React.Component {
           <div onClick={() => this.props.history.push("/")} className="logo">
             🌎 &nbsp;Expat<span>Journal</span>
           </div>
-
           <StyledNavLink exact to="/" activeClassName="activeNavButton">
             Home
         </StyledNavLink>
           <StyledNavLink to="/browse" activeClassName="activeNavButton">
             Browse
+        </StyledNavLink>
+        <StyledNavLink to={`/profile/${userId}`} activeClassName="activeNavButton">
+          My Profile
         </StyledNavLink>
           <StyledLoginNavLink
             to="/login"
