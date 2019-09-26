@@ -7,12 +7,13 @@ const romeImage = require("../../src/projectImages/rome.jpeg");
 
 const StyledLeft = styled.div`
   padding-top:100px;
+
   width: 50%;
   h1 {
     font-family: 'Roboto Condensed', serif;
     font-size: 3.5rem;
     color: white;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
     text-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   }
   p {
@@ -70,9 +71,10 @@ const StyledRight = styled.div`
 const StyledContainer = styled.div`
   display: flex;
   padding-top: 10px;
-  padding-bottom: 50px;
+  padding-bottom: 80px;
   background-image: url(${romeImage});
   background-repeat: no-repeat;
+  background-size: stretch;
   @media screen and (max-width: 500px) {
     display: flex;
     flex-direction: column;

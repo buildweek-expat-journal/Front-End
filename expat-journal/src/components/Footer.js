@@ -5,12 +5,15 @@ import styled from 'styled-components'
 const StyledNav = styled.div`
   display: flex;
   text-decoration: none;
-  height: 80px;
+  height: 6vh;
   align-items: center;
   font-size: 2rem;
   width: 100%;
   background-color: #f6f2ef;
   font-family: "Roboto Condensed", serif;
+  background: #2DA561;
+  position: fixed;
+  bottom: 0px;
   span {
     font-weight: bold;
   }
@@ -24,10 +27,10 @@ const StyledNav = styled.div`
     cursor: pointer;
   }
   @media screen and (max-width: 500px) {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
-    height: 100%;
+    height: 12%;
     .logo {
       padding-left: 0;
       margin: 5% 0;
@@ -58,10 +61,12 @@ class Footer extends React.Component {
   render() {
 
     return (
-      <StyledNav>
-        <h6>© Copyright 2019</h6>
-        <div onClick={() => this.props.history.push("/")} className="logo">
-          🌎 &nbsp;
+      <StyledNav className="footer-bar">
+        <div className="footer-div">
+          <h6>© Copyright 2019</h6>
+          <div onClick={() => this.props.history.push("/")} >
+            🌎 &nbsp;
+          </div>
         </div>
       </StyledNav>
     )
