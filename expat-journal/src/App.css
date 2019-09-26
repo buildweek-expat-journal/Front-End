@@ -154,12 +154,12 @@
 }
 
 /* Blog */
-/* modal */
+/* modal TRIP*/
 .ui.active.modal{
 text-align: center;
  
 }
-/* modal button */
+/* modal button TRIP */
 .ui.button{
   background: rgb(238, 238, 238);
   border: 1px solid lightgrey;
@@ -172,4 +172,13 @@ text-align: center;
   font-family: "Roboto Condensed", serif;
   color: black;
   font-weight: 100;
+}
+
+
+
+/* Edit Trip */
+
+.blog-container{
+ 
+  font-size: 1.8rem;
 }
