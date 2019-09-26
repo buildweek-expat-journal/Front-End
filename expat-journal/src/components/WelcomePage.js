@@ -47,6 +47,7 @@ const StyledButton = styled.button`
   }
   @media screen and (max-width: 500px) {
     margin-right: 0;
+    font-size: 1.5rem;
    
   }
 `;
