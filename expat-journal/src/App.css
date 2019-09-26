@@ -173,6 +173,7 @@ p {
 }
 
 .trip-sub-nav-tab {
+
   /* background: rgb(238, 238, 238); */
   border: 1px solid lightgrey;
   /* border-bottom:  rgb(238, 238, 238); */
@@ -185,12 +186,30 @@ p {
   width: 200px;
 }
 
+
 .image-list-container {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
+
+.onclick-name{
+	background: rgb(238, 238, 238);
+	border: 1px solid lightgrey;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	padding: 10px;
+	font-size: 90%;
+	color: black;
+	border-radius: 5px;
+	margin-bottom: .8rem;
+	
+	
+}
+ .onclick-name:hover {
+	color: #4183c4;
+  }
 
 /* Blog */
 
