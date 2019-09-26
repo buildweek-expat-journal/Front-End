@@ -9,7 +9,7 @@ import React, { useContext, useState } from "react";
 import { Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import styled from "styled-components";
-import {axiosWithAuth} from '../auth/AxiosWithAuth.js';
+import axios from 'axios';
 
 const StyledForm = styled.div`
   width: 500px;
@@ -121,7 +121,7 @@ const SignUpForm = (props) => {
   return (
 
     <Formik
-    
+
       initialValues={{
         first_name: "",
         last_name: "",
@@ -132,7 +132,7 @@ const SignUpForm = (props) => {
       }}
 
       onSubmit={(values, { setValues }) => {
-        axiosWithAuth()
+        axios
         .post(`https://expat-journal-api.herokuapp.com/users/register`, register)
           .then(response => {
             console.log(response.data, "from signup")

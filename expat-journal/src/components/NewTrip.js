@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { axiosWithAuth } from '../auth/AxiosWithAuth';
+import {TripContext} from '../contexts/TripContext';
+
 
 export default function NewTrip (props) {
+
+    const {tripsState, setUserTrips} = useContext(TripContext)
+
   const [state, setState] = useState({
     location: '',
     description: '',
     short_desc: '',
+    photos: tripsState
   });
 
   const handleChange = (event) => {
@@ -18,8 +24,8 @@ export default function NewTrip (props) {
       axiosWithAuth()
           .post('/trips', state)
           .then(res => {
-              console.log(state)
-            //   props.history.push(`/profile/${props.match.params.id}`)
+            console.log(state)
+            props.history.push(`/profile/${props.match.params.id}`)
           })
           .catch(err => console.log(err.message));
   }
