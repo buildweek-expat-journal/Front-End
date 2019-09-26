@@ -1,8 +1,12 @@
+*{
+margin: 0
+}
+
 .App {
 	text-align: center;
-	font-family: 'Roboto Condensed', serif;
-	min-height: 100vh;
+  font-family: 'Roboto Condensed', serif;
 }
+
 
 .App-logo {
 	height: 40vmin;
