@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import "./index.css";
 import './App.css';
 import Header from './components/Header'
 import Nav from './components/Nav';
 import Browse from './components/Browse'
 import Traveler from './components/Traveler'
+import Footer from './components/Footer'
 
 import Trip from './components/Trip'
 import Profile from './components/Profile'
@@ -93,8 +95,8 @@ function App() {
               <Route exact path="/traveler/:id" component={Traveler} />
               <Route path="/traveler/:id/location/:lid" component={Trip} />
             </ProfileContext.Provider> 
-         
         </div>
+         <Footer />
       </Router>
     </div>
   );
