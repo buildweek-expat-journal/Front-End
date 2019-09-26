@@ -75,7 +75,7 @@ const StyledButton = styled.button`
 
 const StyledError = styled.div`
   color: red;
-  padding-left: 10px;
+  padding-left: 15px;
 `;
 
 const LoginForm = props => {
@@ -105,15 +105,15 @@ const LoginForm = props => {
               console.log(err.message);
             });
         }}
+        validationSchema={Yup.object().shape({
+          email: Yup.string()
+            .email()
+            .required("Required"),
 
-        // validationSchema={Yup.object().shape({
-        // email: Yup.string()
-        //     .email()
-        //     .required("Required"),
-        // password: Yup.string()
-        //     .required("No password provided.")
-        //     .min(5, "Password should be a minimum of 8 characters.")
-        // })}
+          password: Yup.string()
+            .required("No password provided.")
+            .min(5, "Password should be a minimum of 8 characters.")
+        })}
       >
         {props => {
           const {
