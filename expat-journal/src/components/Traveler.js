@@ -27,43 +27,44 @@ const StyledCard = styled.div`
 
 
 function Traveler(props) {
-    console.log(props.match.params.id)
-    console.log(ProfileContext)
+    // console.log(props.match.params.id)
+    // console.log(ProfileContext)
     const {setTraveler} = useContext(ProfileContext)
 
     const [user, setUser] = useState({})
+    const [images, setImages]= useState ({})
+
     useEffect(() => {
         axios.get(`https://expat-journal-api.herokuapp.com/users/${props.match.params.id}`)
         .then(res => {
             setUser(res.data);
             setTraveler(res.data)
-            console.log(res.data)
-        })
-    },[])
+            console.log(res.data, "data")
+        }) 
+      
+        
+        axios.get(`https://expat-journal-api.herokuapp.com/trips/`)
+      .then(res => {
+          setImages({url:res.data.filter(element => element.user_id===user.id )});
+          setTraveler(res.data,)
+          console.log(res.data, "trips")
+        }) 
+        },[])
 
-    const BookingButton = (event, element) => (
-        <Modal
-          trigger={
-            <Button>
-              View Trips
-            </Button>
-          }
-        >
-          <Modal.Header>View Trips</Modal.Header>
-         <h1>hi</h1>
-         <h1></h1>
-          <Login/>
-        </Modal>
-      );
+  
+   
 
     const clickHandle = (event, element) => {
         event.persist()
-        console.log(element.id)
+        // console.log(element.id)
         props.history.push(`/traveler/${user.id}/location/${element.id}`)
     }
     return (
         <div className='profile-wrapper'>
             {console.log(user)}
+            {/* {console.log(images, "images")} */}
+            { !images.url ? console.log("not working") :  console.log(images,"images ") }
+
             <div className='header-container'>
               <h1>{`Welcome to ${user.first_name}'s page`}</h1>
             </div>
@@ -81,13 +82,14 @@ function Traveler(props) {
                 {/* <img src={user.trips.photo[2]}></img> */}
                 
                 <div className="traveler-trips-container">
-                    {console.log(user)}
+                    {/* {console.log(user)} */}
                 { !user.trips ? <h3>Loading</h3> : 
                     user.trips.map(element => {
                         console.log(user)
+                        console.log(element,"element")
                         return <StyledCard  className="traveler-trip-div" onClick={(event) => clickHandle(event, element)} key={element.id} style={{backgroundImage: `url(${element.locationCardUrl})`}}>{element.location}</StyledCard>
                 })}
-                {/* <BookingButton/> */}
+               
                 </div>
             </div>
             
