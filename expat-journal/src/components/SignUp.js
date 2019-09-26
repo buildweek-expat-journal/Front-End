@@ -97,7 +97,7 @@ const StyledButton = styled.button`
 
 const StyledSignUp = styled.form`
   width: 500px;
-  border: 1px solid black;
+  border: 0;
   border-radius: 0.25rem;
   margin: 0 auto;
   height: 700px;
@@ -105,7 +105,9 @@ const StyledSignUp = styled.form`
   font-family: "Roboto", sans-serif;
   text-align: center;
   padding-left: 20px;
-  box-shadow: 10px 10px 16px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3),
+  0 2px 4px -1px rgba(0, 0, 0, 0.1);
+
   @media screen and (max-width: 500px) {
     padding-left: initial;
     height: 600px;
