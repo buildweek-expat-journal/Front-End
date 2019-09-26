@@ -119,6 +119,11 @@
   padding-top: 10px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+
+.blog-container {
+  margin: 3%;
 }
 
 .trip-sub-nav-tab {

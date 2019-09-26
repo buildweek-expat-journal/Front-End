@@ -34,7 +34,6 @@ function Trip(props) {
 
             {/* {console.log(props)} */}
             <h1>{state.location}</h1>
-            <h1>this</h1>
             <h2 onClick={() => props.history.push(`/traveler/${props.match.params.id}`)}>{`by ${user.first_name} ${user.last_name}`}</h2>
 
             {/* banner image of the location */}
