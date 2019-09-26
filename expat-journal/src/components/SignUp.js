@@ -100,7 +100,7 @@ const StyledSignUp = styled.form`
   border: 0;
   border-radius: 0.25rem;
   margin: 0 auto;
-  height: 700px;
+  height: 650px;
   background-color: rgba(255, 255, 255, 0.9);
   font-family: "Roboto", sans-serif;
   text-align: center;
@@ -115,9 +115,9 @@ const StyledSignUp = styled.form`
 
   h2 {
     text-align: left;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
     padding-left: 1.7rem;
-    padding-top: 50px;
+    padding-top: 20px;
     font-size: 2rem;
     font-family: "Roboto Condensed", serif;
     font-weight: 400;
@@ -173,9 +173,11 @@ const SignUpForm = props => {
             register
           )
           .then(response => {
-            console.log(response.data, "from signup");
-            localStorage.setItem("token", response.data.token);
-            props.history.push(`/profile/${response.data.user_id}`);
+            console.log(response.data, "from signup")
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem("user_id", response.data.user_id);
+          props.history.push(`/profile/${response.data.user_id}`)
+
           })
           .catch(err => {
             console.log(err.message);

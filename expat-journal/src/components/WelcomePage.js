@@ -6,6 +6,7 @@ import styled from "styled-components";
 const romeImage = require("../../src/projectImages/rome.jpeg");
 
 const StyledLeft = styled.div`
+  padding-top:100px;
   width: 50%;
   h1 {
     font-family: 'Roboto Condensed', serif;
@@ -55,7 +56,7 @@ const StyledButton = styled.button`
 const StyledRight = styled.div`
   width: 50%;
   h1 {
-    padding-bottom: 3rem;
+    padding-top: 2rem;
     font-family: 'Roboto Condensed', serif;
     color: white;
     font-size: 2.6rem;
@@ -68,8 +69,8 @@ const StyledRight = styled.div`
 
 const StyledContainer = styled.div`
   display: flex;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 10px;
+  padding-bottom: 50px;
   background-image: url(${romeImage});
   background-repeat: no-repeat;
   @media screen and (max-width: 500px) {
@@ -78,20 +79,25 @@ const StyledContainer = styled.div`
   }
 `;
 
+export default class WelcomePage extends React.Component {
 
-export default function WelcomePage(props) {
-  return (
-    <StyledContainer>
-      <StyledLeft>
-        <h1>Welcome to Expat Journal</h1>
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <StyledContainer>
+        <StyledLeft>
+          <h1>Welcome to Expat Journal</h1>
 
-        <StyledButton onClick={() => props.history.push('/login')}>Log In</StyledButton>
-      </StyledLeft>
+          <StyledButton onClick={() => this.props.history.push('/login')}>Log In</StyledButton>
+        </StyledLeft>
 
-      <StyledRight>
-        <h1 className="member-txt">Not a member?</h1>
-        <SignUp {...props} />
-      </StyledRight>
-    </StyledContainer>
-  );
+        <StyledRight>
+          <h1 className="member-txt">Not a member?</h1>
+          <SignUp {...this.props} />
+        </StyledRight>
+      </StyledContainer>
+    );
+  }
 }
