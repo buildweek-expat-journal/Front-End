@@ -12,7 +12,7 @@ const StyledContainer = styled.div`
   padding-top: 100px;
   background-image: url(${asiaImage});
   background-repeat: no-repeat;
-  padding-bottom: 100px;
+  padding-bottom: 200px;
 `;
 
 const StyledLogin = styled.div`

@@ -63,7 +63,7 @@ const StyledSelect = styled.select`
 `;
 
 const StyledButton = styled.button`
-  padding: 10px 15px;
+  padding: 15px 15px;
   background-color: #2da561;
   color: #fff;
   width: 60%;
@@ -93,7 +93,7 @@ const StyledSignUp = styled.form`
   border: 1px solid black;
   border-radius: 0.25rem;
   margin: 0 auto;
-  height: 750px;
+  height: 700px;
   background-color: rgba(255, 255, 255, 0.9);
   font-family: "Roboto", sans-serif;
   text-align: center;

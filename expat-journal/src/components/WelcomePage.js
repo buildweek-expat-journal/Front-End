@@ -68,6 +68,7 @@ const StyledRight = styled.div`
 const StyledContainer = styled.div`
   display: flex;
   padding-top: 100px;
+  padding-bottom: 100px;
   background-image: url(${romeImage});
   background-repeat: no-repeat;
   @media screen and (max-width: 500px) {
