@@ -9,19 +9,19 @@ const StyledNav = styled.div`
   align-items: center;
   font-size: 2rem;
   width: 100%;
-  background-color: #F6F2EF;
-  font-family: 'Roboto Condensed', serif;
+  background-color: #f6f2ef;
+  font-family: "Roboto Condensed", serif;
   span {
-      font-weight: bold;
+    font-weight: bold;
   }
   .logo {
-      flex-grow: 2;
-      justify-content: flex-start;
-      text-align: left;
-      padding-left: 20px;
-      color: black;
-      margin-left: 40px;
-      cursor: pointer;
+    flex-grow: 2;
+    justify-content: flex-start;
+    text-align: left;
+    padding-left: 20px;
+    color: black;
+    margin-left: 40px;
+    cursor: pointer;
   }
   @media screen and (max-width: 500px) {
     display: flex;
@@ -47,26 +47,43 @@ const StyledNavLink = styled(NavLink)`
   margin-right: 40px;
 `;
 
+const StyledLoginNavLink = styled(NavLink)`
+  background-color: #22283a;
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 0.1em solid #22283a;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  margin-right: 20px;
+  :hover {
+    background-color: #2da562;
+    border: 0.1em solid #2da562;
+    color: #fff !important;
+  }
+`;
+
 export default function Nav(props) {
   return (
-      <div>
-    <StyledNav>
+    <div>
+      <StyledNav>
+        <div onClick={() => props.history.push("/")} className="logo">
+          🌎 &nbsp;Expat<span>Journal</span>
+        </div>
 
-
-        <div onClick={() => props.history.push('/')} className="logo">🌎 &nbsp;Expat<span>Journal</span></div>
-
-
-      <StyledNavLink exact to="/" activeClassName="activeNavButton">
-        Home
-      </StyledNavLink>
-      <StyledNavLink to="/browse" activeClassName="activeNavButton">
-        Browse
-      </StyledNavLink>
-      <StyledNavLink to="/login" className="login-btn" activeClassName="activeNavButton">
-        Login
-      </StyledNavLink>
-
-    </StyledNav>
+        <StyledNavLink exact to="/" activeClassName="activeNavButton">
+          Home
+        </StyledNavLink>
+        <StyledNavLink to="/browse" activeClassName="activeNavButton">
+          Browse
+        </StyledNavLink>
+        <StyledLoginNavLink
+          to="/login"
+          className="login-btn"
+          activeClassName="activeNavButton"
+        >
+          Login
+        </StyledLoginNavLink>
+      </StyledNav>
     </div>
   );
 }
