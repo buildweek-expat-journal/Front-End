@@ -266,7 +266,7 @@ const SignUpForm = props => {
             {/* <label htmlFor="confirmPassword">Confirm Password</label> */}
            {/*  //I put the confirm password field back in for styling but wasn't
             sure if it was commented out because we're not going to use it? I also took the labels out for styling purposes because the form was so long - not sure what you guys think?// */}
-            <StyledInput
+            {/* <StyledInput
               name="confirmPassword"
               type="password"
               placeholder="Confirm your password"
@@ -277,7 +277,7 @@ const SignUpForm = props => {
             />
             {errors.confirmPassword && touched.confirmPassword && (
               <StyledError>{errors.confirmPassword}</StyledError>
-            )}
+            )} */}
             {/*      <label htmlFor="profileType">Select Profile Type</label> */}
             <br />
             <StyledSelect
