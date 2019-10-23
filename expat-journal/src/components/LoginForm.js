@@ -110,7 +110,7 @@ const LoginForm = props => {
                 loginState
               )
               .then(response => {
-                console.log(response.data);
+                console.log(response.data, 'login data');
                 localStorage.setItem("token", response.data.token);
                 localStorage.setItem("user_id", response.data.user_id);
                 props.history.push(`/profile/${response.data.user_id}`);
